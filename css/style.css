@@ -1,11 +1,13 @@
 /* Global */
 @import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Kameron);
 @import url(http://fonts.googleapis.com/css?family=Belgrano);
 @import url(http://fonts.googleapis.com/css?family=Patua+One);
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Kameron', serif;
     font-size: 1em;
+	font-weight: 400;
     color: #a9d3d0;
     line-height: 25px;    
 }
@@ -55,23 +57,22 @@ a:visited {
     float: right;
     list-style: none;
     margin: 0;
-    font-family: 'Belgrano',serif;
+    font-family: 'Patua One',cursive;
 }
 .navigation li{
-    float: left;
+    float: left;	 
     padding:0 0 0 35px;
 }
 .navigation li:hover{
     cursor:pointer;
     color: #8fae00;
-    font-family: 'Belgrano',serif;
+    font-family: 'Patua One',cursive;
 }
 
 .navigation .active{
     cursor:pointer;
-    /*color: #8fae00;*/
-    font-weight:normal;    
-    font-family: 'Belgrano',serif;
+    /*color: #8fae00;*/    
+    font-family: 'Patua One',cursive;
 }
 
 
@@ -91,6 +92,7 @@ a:visited {
 
 #bigbutton { 
   font-size: 1.1em;
+  font-family: 'Patua One',cursive;
   text-align: center;
   letter-spacing: 2px;
   width: 280px;
@@ -189,25 +191,25 @@ animation-play-state:running;
 /* Slide 1 */
 #slide1 { background: #26a5c3 url('../images/slide1-bg.jpg') repeat-x; height: 1027px; color: #7C5649; }
 #slide1 h1 { font-family: 'Patua One', cursive; font-size: 2.8em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0; color: #664436; padding: 0; }
-#slide1 h2 { font-family: 'Belgrano',serif; font-weight: normal; font-size: 2.1em; /*    margin-top: -35px;*/ color: #664436; line-height: 5px; padding: 0 0 35px 0; }
+#slide1 h2 { font-family: 'Kameron', serif; font-weight: normal; font-size: 2.1em; /*    margin-top: -35px;*/ color: #664436; line-height: 5px; padding: 0 0 35px 0; }
 #slide1 h4 { font-family: 'Patua One', cursive; font-size: 1.6em; font-weight: normal; text-shadow: 0 1px 1px #fff; /*margin-top: -18px;*/ letter-spacing: .85px; line-height: 0; color: #C05B2C; }
-#slide1 p { font-size: 1.2em; color: #7D584A; line-height: 26px; padding: 0px; margin: 0px; font-weight: 400; }
+#slide1 p { font-size: 1.1em; color: #7D584A; line-height: 26px; padding: 0px; margin: 0px; font-weight: 400; }
 /* Slide 2 */
 #slide2 { background-image: url('../images/slide2-back.png'); background-color: #26a5c3; color: #fff; }
-#slide2 h1 { font-family: 'Patua One', cursive; font-size: 2.8em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
-#slide2 h2 { font-family: 'Belgrano',serif; font-weight: normal; text-shadow: 0 1px 1px #333333; font-size: 1.5em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
-#slide2 h3 { font-family: 'Belgrano',serif; font-weight: normal; font-size: 2.6em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; margin: 0 0 0 -20px; padding-top: 0px; padding-bottom: 40px; }
-#slide2 h4 { font-family: 'Belgrano',serif; font-weight: normal; font-size: 1.8em; color: #fff; line-height: 28px; text-align: center; letter-spacing: 1px; margin: 70px 0 0 0px; padding-top: 0px; padding-bottom: 10px; }
-#slide2 p { font-size: .95em; color: #fff; line-height: 22px; padding-bottom: 10px; }
+#slide2 h1 { font-family: 'Patua One', cursive; font-size: 2.5em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
+#slide2 h2 { font-family: 'Patua One',cursive; font-weight: normal; text-shadow: 0 1px 1px #666666; font-size: 1.6em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
+#slide2 h3 { font-family: 'Kameron', serif; font-weight: normal; font-size: 2.6em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; margin: 0 0 0 -20px; padding-top: 0px; padding-bottom: 40px; }
+#slide2 h4 { font-family: 'Kameron', serif; font-weight: normal; font-size: 1.8em; color: #fff; line-height: 28px; text-align: center; letter-spacing: 1px; margin: 70px 0 0 0px; padding-top: 0px; padding-bottom: 10px; }
+#slide2 p { font-size: 1.1em; color: #fff; line-height: 22px; padding-bottom: 10px; }
 #slide2 a:link { color: #dbfc41; text-decoration: none; }
 #slide2 a:hover { color: #bde2df; text-decoration: none; }
 #slide2 a:visited { color: #F78D1D; text-decoration: none; }
 /* Slide 3 */
 #slide3 { background-image: url('../images/slide3-back.png'); background-color: #2589a1; color: #ffffff; }
-#slide3 h1 { font-family: 'Patua One', cursive; font-size: 2.8em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
-#slide3 h2 { font-family: 'Belgrano',serif; font-weight: normal; text-shadow: 0 1px 1px #333333; font-size: 1.5em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
-#slide3 h3 { font-family: 'Belgrano',serif; font-weight: normal; font-size: 2.6em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 20px; }
-#slide3 p { font-size: .95em; color: #fff; line-height: 22px; padding-bottom: 0px; }
+#slide3 h1 { font-family: 'Patua One', cursive; font-size: 2.5em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
+#slide3 h2 { font-family: 'Patua One',cursive; font-weight: normal; text-shadow: 0 1px 1px #666666; font-size: 1.6em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
+#slide3 h3 { font-family: 'Kameron', serif; font-weight: normal; font-size: 2.6em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 20px; }
+#slide3 p { font-size: 1.1em; color: #fff; line-height: 22px; padding-bottom: 0px; }
 #slide3 .mylist li { list-style-type: none; margin: 0 0 0 -32px; padding-top: 4px; padding-bottom: 4px; border-bottom: 1px solid #58B7DD; }
 #slide3 .mylist li a { font-size: 15px; text-decoration: none; list-style: none; width: auto; margin: 0; background: none; padding: 0 0 0 0; }
 #slide3 .mylist ul { color: #fff; list-style: none; margin: 0; line-height: 200%; }
@@ -216,17 +218,17 @@ animation-play-state:running;
 #slide3 a:visited { color: #F78D1D; text-decoration: none; }
 /* Slide 4 */
 #slide4 { background-image: url('../images/slide4-back.png'); background-color: #134f5e; color: #fff; }
-#slide4 h1 { font-family: 'Patua One', cursive; font-size: 2.8em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
-#slide4 h2 { font-family: 'Belgrano',serif; font-weight: normal; text-shadow: 0 1px 1px #333333; font-size: 1.5em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
-#slide4 p { font-size: .95em; color: #fff; line-height: 22px; padding-bottom: 0px; }
+#slide4 h1 { font-family: 'Patua One', cursive; font-size: 2.5em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
+#slide4 h2 { font-family: 'Patua One',cursive; font-weight: normal; text-shadow: 0 1px 1px #333333; font-size: 1.5em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
+#slide4 p { font-size: 1.1em; color: #fff; line-height: 22px; padding-bottom: 0px; }
 #slide4 a:link { color: #dbfc41; text-decoration: none; }
 #slide4 a:hover { color: #bde2df; text-decoration: none; }
 #slide4 a:visited { color: #F78D1D; text-decoration: none; }
 /* Slide 5 */
 #slide5 { background-image: url('../images/slide4-back.png'); background-color: #042d37; color: #fff; }
-#slide5 h1 { font-family: 'Patua One', cursive; font-size: 2.8em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
-#slide5 h2 { font-family: 'Belgrano',serif; font-weight: normal; text-shadow: 0 1px 1px #333333; font-size: 1.5em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
-#slide5 p { font-size: .95em; color: #fff; line-height: 22px; padding-bottom: 0px; }
+#slide5 h1 { font-family: 'Patua One', cursive; font-size: 2.5em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
+#slide5 h2 { font-family: 'Patua One',cursive; font-weight: normal; text-shadow: 0 1px 1px #666666; font-size: 1.5em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
+#slide5 p { font-size: 1.1em; color: #fff; line-height: 22px; padding-bottom: 0px; }
 #slide5 a:link { color: #dbfc41; text-decoration: none; }
 #slide5 a:hover { color: #bde2df; text-decoration: none; }
 #slide5 a:visited { color: #F78D1D; text-decoration: none; }
@@ -234,8 +236,8 @@ animation-play-state:running;
 #footer { background: #144f5f url('../images/footer-bg.jpg') repeat-x; width: 100%; height: 60px; /*padding-top: 5px;*/ }
 #footer-inner { background: none; margin: 0 auto 0 auto; padding-top: 10px; }
 #footer h1 { font-family: 'Patua One', cursive; font-size: 8em; letter-spacing: 0px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
-#footer h2 { font-family: 'Belgrano',serif; font-weight: normal; font-size: 1.5em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
-#footer p { font-size: .75em; color: #fff; line-height: 22px; padding-bottom: 0px; }
+#footer h2 { font-family: 'Kameron', serif; font-weight: normal; font-size: 1.5em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
+#footer p { font-size: .90em; color: #fff; line-height: 22px; padding-bottom: 0px; }
 #footer a:link { color: #dbfc41; text-decoration: none; }
 #footer a:hover { color: #bde2df; text-decoration: none; }
 #footer a:visited { color: #F78D1D; text-decoration: none; }
@@ -293,7 +295,7 @@ animation-play-state:running;
     #logo { width: 100%; text-align: center; }
     #nav { width: 100%; text-align: center; margin: 10px 0; }
     .navigation { font-size: 1.1em; width: 100%; float: center; list-style: none; margin: 0; padding: 0; }
-    .navigation li { float: left; width: 25%; font-family: 'Belgrano',serif; padding: 0; }
+    .navigation li { float: left; width: 25%; font-family: 'Kameron', serif; padding: 0; }
     .menu { background: #50433b }
     .slide { background-attachment: fixed; width: 100%; position: relative; padding: 150px 0; }
     #decorative { width: 50%; margin-top: -730px; float: right; }
@@ -340,7 +342,7 @@ animation-play-state:running;
     .flexslider .slides { width: 100% }
     #mainaside-right-sub1 { text-align: center; margin: 0 auto 0 auto; width: 100%; }
     #mainaside-right-sub2 { text-align: center; margin: 0 auto 0 auto; width: 100%; }
-    #footer p { font-size: .70em; line-height: 1.7em; text-align: center; width: 100%; }
+    #footer p { font-size: .90em; line-height: 1.7em; text-align: center; width: 100%; }
     .logobottom { display: none }
     #nodog { display: none }
     #bubbles { display: none }
@@ -367,3 +369,15 @@ animation-play-state:running;
     .ch-img-3 { width: 90%; height: 90%; }
 }
 
+.tclass{
+	cursor:pointer;
+	display:inline;
+	float:left;
+	min-width:8px;
+	min-height:6px;
+	padding:5px;
+	margin-right:10px;
+	}
+.ac{
+	border-bottom:#333 solid 1px;
+}
