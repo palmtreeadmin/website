@@ -61,7 +61,7 @@ a:visited {
 }
 .navigation li{
     float: left;	 
-    padding:0 0 0 35px;
+    padding:0 0 0 20px;
 }
 .navigation li:hover{
     cursor:pointer;
@@ -195,7 +195,7 @@ animation-play-state:running;
 #slide1 h4 { font-family: 'Patua One', cursive; font-size: 1.6em; font-weight: normal; text-shadow: 0 1px 1px #fff; /*margin-top: -18px;*/ letter-spacing: .85px; line-height: 0; color: #C05B2C; }
 #slide1 p { font-size: 1.1em; color: #7D584A; line-height: 26px; padding: 0px; margin: 0px; font-weight: 400; }
 /* Slide 2 */
-#slide2 { background-image: url('../images/slide2-back.png'); background-color: #26a5c3; color: #fff; }
+#slide2 { background-color: #26a5c3; color: #fff; }
 #slide2 h1 { font-family: 'Patua One', cursive; font-size: 2.5em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
 #slide2 h2 { font-family: 'Patua One',cursive; font-weight: normal; text-shadow: 0 1px 1px #666666; font-size: 1.6em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
 #slide2 h3 { font-family: 'Kameron', serif; font-weight: normal; font-size: 2.6em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; margin: 0 0 0 -20px; padding-top: 0px; padding-bottom: 40px; }
@@ -205,7 +205,7 @@ animation-play-state:running;
 #slide2 a:hover { color: #bde2df; text-decoration: none; }
 #slide2 a:visited { color: #F78D1D; text-decoration: none; }
 /* Slide 3 */
-#slide3 { background-image: url('../images/slide3-back.png'); background-color: #2589a1; color: #ffffff; }
+#slide3 { background-color: #2589a1; color: #ffffff; }
 #slide3 h1 { font-family: 'Patua One', cursive; font-size: 2.5em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
 #slide3 h2 { font-family: 'Patua One',cursive; font-weight: normal; text-shadow: 0 1px 1px #666666; font-size: 1.6em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
 #slide3 h3 { font-family: 'Kameron', serif; font-weight: normal; font-size: 2.6em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 20px; }
@@ -217,7 +217,7 @@ animation-play-state:running;
 #slide3 a:hover { color: #bde2df; text-decoration: none; }
 #slide3 a:visited { color: #F78D1D; text-decoration: none; }
 /* Slide 4 */
-#slide4 { background-image: url('../images/slide4-back.png'); background-color: #134f5e; color: #fff; }
+#slide4 { background-color: #134f5e; color: #fff; }
 #slide4 h1 { font-family: 'Patua One', cursive; font-size: 2.5em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
 #slide4 h2 { font-family: 'Patua One',cursive; font-weight: normal; text-shadow: 0 1px 1px #333333; font-size: 1.5em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
 #slide4 p { font-size: 1.1em; color: #fff; line-height: 22px; padding-bottom: 0px; }
@@ -225,13 +225,21 @@ animation-play-state:running;
 #slide4 a:hover { color: #bde2df; text-decoration: none; }
 #slide4 a:visited { color: #F78D1D; text-decoration: none; }
 /* Slide 5 */
-#slide5 { background-image: url('../images/slide4-back.png'); background-color: #042d37; color: #fff; }
+#slide5 { background-color: #042d37; color: #fff; }
 #slide5 h1 { font-family: 'Patua One', cursive; font-size: 2.5em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
 #slide5 h2 { font-family: 'Patua One',cursive; font-weight: normal; text-shadow: 0 1px 1px #666666; font-size: 1.5em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
 #slide5 p { font-size: 1.1em; color: #fff; line-height: 22px; padding-bottom: 0px; }
 #slide5 a:link { color: #dbfc41; text-decoration: none; }
 #slide5 a:hover { color: #bde2df; text-decoration: none; }
 #slide5 a:visited { color: #F78D1D; text-decoration: none; }
+/* Slide 6 */
+#slide6 { background-color: #011e25; color: #fff; }
+#slide6 h1 { font-family: 'Patua One', cursive; font-size: 2.5em; font-weight: normal; text-shadow: 0 1px 1px #333333; letter-spacing: 2px; line-height: 0px; color: #dbfc41; padding-bottom: 0; }
+#slide6 h2 { font-family: 'Patua One',cursive; font-weight: normal; text-shadow: 0 1px 1px #666666; font-size: 1.5em; color: #AFE0E9; line-height: 28px; letter-spacing: 1px; padding-top: 0px; padding-bottom: 10px; }
+#slide6 p { font-size: 1.1em; color: #fff; line-height: 22px; padding-bottom: 0px; }
+#slide6 a:link { color: #dbfc41; text-decoration: none; }
+#slide6 a:hover { color: #bde2df; text-decoration: none; }
+#slide6 a:visited { color: #F78D1D; text-decoration: none; }
 /* Footer */
 #footer { background: #144f5f url('../images/footer-bg.jpg') repeat-x; width: 100%; height: 60px; /*padding-top: 5px;*/ }
 #footer-inner { background: none; margin: 0 auto 0 auto; padding-top: 10px; }
