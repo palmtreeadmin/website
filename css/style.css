@@ -25,12 +25,7 @@ a:hover {
 a:visited {
     color: #f68f67;
     text-decoration: none;
-}
-
-
-
-    
-    
+}    
 /* Navigation */
 
 .menu {
@@ -74,9 +69,6 @@ a:visited {
     /*color: #8fae00;*/    
     font-family: 'Patua One',cursive;
 }
-
-
-
 /* General Slides */ 
 
 .slide{
@@ -86,8 +78,6 @@ a:visited {
     position: relative;
     padding:120px 0 160px 0;
 }
-
-
 /* Miscellaneous */ 
 
 #bigbutton { 
@@ -105,9 +95,7 @@ a:visited {
   margin-bottom: 10px;
   padding-top: 25px;
 }
-
 #bigbutton:hover {opacity: 0.6; }
-
 
 #decorative {
 position:relative;
