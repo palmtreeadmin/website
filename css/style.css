@@ -586,8 +586,12 @@ div#preloader {
 
 .panel-default>.panel-heading {
   background-color: transparent;
-  border: medium none;
+  border-bottom: 1px solid #dadce0;
   color: #333;
+}
+
+.panel-default {
+  border: none !important;
 }
 
 .faq-details h4.check-title a {
@@ -595,13 +599,12 @@ div#preloader {
   display: block;
   font-weight: 700;
   letter-spacing: 2px;
-  margin-left: 40px;
-  padding: 6px 10px;
+  padding: 24px 10px;
   text-decoration: none;
 }
 
 .panel-body {
-  padding: 15px 15px 0px 50px;
+  padding: 15px 15px 0px 15px;
 }
 
 .faq-details h4.check-title {
@@ -621,7 +624,7 @@ div#preloader {
   font-family: fontawesome;
   font-size: 24px;
   height: 40px;
-  left: -51px;
+  left: 1086px;
   line-height: 39px;
   position: absolute;
   text-align: center;
@@ -638,7 +641,7 @@ div#preloader {
   font-family: fontawesome;
   font-size: 24px;
   height: 40px;
-  left: -51px;
+  left: 1086px;
   line-height: 39px;
   position: absolute;
   text-align: center;
@@ -2410,6 +2413,28 @@ span.email-notes {
 .header-area.inner-page {
   background: #000 !important;
 }
+
+.tools-sec ul li{
+  display: inline-block;
+  width: 149px;
+  text-align: center;
+}
+
+.tools-sec ul li img{
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.tools-sec ul li p {
+  font-size: 16px;
+  color: #5f6368;
+}
+
+.tools-sec ul li {
+  margin: 5px 15px;
+}
+
 /*----------------------------------------
  .End CSS
 ----------------------------------------*/
