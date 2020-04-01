@@ -14,7 +14,7 @@
   /*---------------------
    TOP Menu Stick
   --------------------- */
-  var s = $("#sticker");
+  /*var s = $("#sticker");
   var pos = s.position();
   $(window).on('scroll', function() {
     var windowpos = $(window).scrollTop() > 300;
@@ -23,16 +23,16 @@
     } else {
       s.removeClass("stick");
     }
-  });
+  });*/
 
   /*----------------------------
    Navbar nav
   ------------------------------ */
-  var main_menu = $(".main-menu ul.navbar-nav li ");
+  /*var main_menu = $(".main-menu ul.navbar-nav li ");
   main_menu.on('click', function() {
     main_menu.removeClass("active");
     $(this).addClass("active");
-  });
+  });*/
 
   /*----------------------------
    wow js active
@@ -78,14 +78,17 @@
   /*----------------------------
   Page Scroll
   ------------------------------ */
-  var page_scroll = $('a.page-scroll');
+  /*var page_scroll = $('a.page-scroll');
+	console.log("page_scroll")
+	console.log(page_scroll)
   page_scroll.on('click', function(event) {
+	console.log("indexxxx")
     var $anchor = $(this);
     $('html, body').stop().animate({
       scrollTop: $($anchor.attr('href')).offset().top - 55
     }, 1500, 'easeInOutExpo');
     event.preventDefault();
-  });
+  });*/
 
   /*--------------------------
     Back to top button

@@ -40,57 +40,20 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+  $(function(){
+    $("#header").load("header.html");
+    $("#footer").load("footer.html");
+  });
+  </script>
 </head>
 
 <body data-spy="scroll" data-target="#navbar-example">
 
   <div id="preloader"></div>
-
-  <header>
-    <!-- header-area start -->
-    <div id="sticker" class="header-area inner-page">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-
-            <!-- Navigation -->
-            <nav class="navbar navbar-default">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-example-navbar-collapse-1" aria-expanded="false">
-										<span class="sr-only">Toggle navigation</span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-                <!-- Brand -->
-                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
-                  <h1><span>P</span>almtree</h1>
-                  <!-- Uncomment below if you prefer to use an image logo -->
-                  <!-- <img src="img/logo.png" alt="" title=""> -->
-								</a>
-              </div>
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
-                <ul class="nav navbar-nav navbar-right">
-                  <li class="active">
-                    <a class="page-scroll" href="#cloud">Cloud</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="#big-data">Big Data</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- navbar-collapse -->
-            </nav>
-            <!-- END: Navigation -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- header-area end -->
-  </header>
-  <!-- header end -->
+  <div id="header" class="header-inner-page"></div>
 
   <!-- Start About area -->
   <div class="google-cloud-sec">
@@ -325,95 +288,8 @@
 
     </div>
   </div>
-  <!-- Start Footer bottom Area -->
-  <footer>
-    <div class="footer-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="footer-content">
-              <div class="footer-head">
-                <div class="footer-logo">
-                  <h2><span>P</span>almtree</h2>
-                </div>
 
-                <p>Palmtree Infotech is a product development company that helps customers create next-generation products using cloud and big data technologies. Palmtree works at the intersection of business and technology to help clients improve their performance and create sustainable value for their stakeholders.</p>
-                <div class="footer-icons">
-                  <ul>
-                    <li>
-                      <a href="https://twitter.com/palmtreelabs" target="_blank"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="https://in.linkedin.com/company/palmtree-infotech" target="_blank"><i class="fa fa-linkedin-square"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end single footer -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="footer-content">
-              <div class="footer-head">
-                <h4>information</h4>
-                <div class="footer-contacts">
-                  <p><span>Tel:</span> 044 42779031</p>
-                  <p><span>Email:</span> info@palmtreeinfotech.com</p>
-                  <p><span>Working Hours:</span> 9am-6pm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end single footer -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="footer-content">
-              <div class="footer-head">
-                <h4>Cloud Platforms</h4>
-                <!--<div class="flicker-img">
-                  <a href="#"><img src="img/portfolio/1.jpg" alt=""></a>
-                  <a href="#"><img src="img/portfolio/2.jpg" alt=""></a>
-                  <a href="#"><img src="img/portfolio/3.jpg" alt=""></a>
-                  <a href="#"><img src="img/portfolio/4.jpg" alt=""></a>
-                  <a href="#"><img src="img/portfolio/5.jpg" alt=""></a>
-                  <a href="#"><img src="img/portfolio/6.jpg" alt=""></a>
-                </div>-->
-                <div class="footer-last">
-                  <ul>
-                    <li>Google Cloud Platform</li>
-                    <li>Microsoft Azure</li>
-                    <li>Amazon Web Services</li>
-                  </ul>
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-area-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="copyright text-center">
-              <p>
-                &copy; Copyright <strong>Palmtree Infotech</strong>. All Rights Reserved
-              </p>
-            </div>
-            <div class="credits">
-              <!--
-                All the links in the footer should remain intact.
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eBusiness
-              -->
-              Designed by <a href="http://palmtreeinfotech.com/">Palmtree Infotech</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <div id="footer"></div>
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- JavaScript Libraries -->

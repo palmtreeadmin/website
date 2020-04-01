@@ -2401,16 +2401,29 @@ span.email-notes {
   height: 400px;
   margin-top: 70px;
 }
+.case-studies-sec {
+  background: rgba(248, 248, 248, 0.8) url(../img/background/case-study.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 427px;
+  margin-top: 70px;
+}
+.case-studies-sec .bg-overlay {
+  height: 427px;
+  background: rgba(0, 0, 0, 0.58);
+}
 .bg-overlay {
   background: rgba(0, 0, 0, 0.80);
   height: 400px;
 }
-.google-cloud-sec h2{
+.google-cloud-sec h2, .case-studies-sec h2{
   padding:180px 0px;
   color: #fff;
 }
 
-.header-area.inner-page {
+.header-area.inner-page, .header-inner-page .header-area{
   background: #000 !important;
 }
 
@@ -2433,6 +2446,107 @@ span.email-notes {
 
 .tools-sec ul li {
   margin: 5px 15px;
+}
+
+.inner-sec {
+  padding-top: 50px;
+}
+
+.case-studies {
+  margin: 0px 10px 20px;
+  border: 1px solid #e5e5e5;
+}
+
+.case-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.case-title {
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 22px;
+  color: #3ec1d5;
+}
+
+.more-btn a {
+  background: #3ec1d5;
+  padding: 6px 20px;
+  color: #fff;
+  border-radius: 50px;
+}
+
+.more-btn {
+  text-align: center;
+}
+
+.case-study-inner {
+  display: block;
+  position: relative;
+  margin: 40px 0;
+}
+
+.case-study-title {
+  position: absolute;
+  top: -21%;
+  left: 0;
+  background: none;
+  transform-origin: 0 0;
+  transform: rotate(90deg);
+}
+
+.case-study-title h3 {
+  background: #3ec1d5;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 17px;
+  transform: rotate(180deg);
+}
+
+.case-study-content {
+  padding-left: 20px;
+}
+
+.case-study-content ul, .case-study-sec2 ul, .result-sec ul{
+  list-style-type: disc;
+  padding-left: 30px;
+}
+
+.case-study-content h3 {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 22px;
+  color: #3ec1d5;
+}
+
+.case-study-sec2 {
+  background: #047AB3;
+  padding: 40px 0px;
+  color: #fff;
+}
+
+.case-study-tools h3, .challenges-title, .result-sec h3{
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 22px;
+}
+
+.result-sec {
+  background: #152764;
+  padding: 40px 0px;
+  color: #fff;
+}
+
+.case-detail-title {
+  font-size: 35px;
+  text-align: center;
+  color: #3ec1d5;
+}
+
+@media screen and (max-width : 906px){
+ .case-study-title {
+    visibility: hidden;
+  }
 }
 
 /*----------------------------------------
