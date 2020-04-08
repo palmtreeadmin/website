@@ -2429,19 +2429,25 @@ span.email-notes {
 
 .tools-sec ul li{
   display: inline-block;
-  width: 149px;
+  width: 22%;
   text-align: center;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.05), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  padding: 10px;
 }
 
 .tools-sec ul li img{
-  width: 60px;
-  height: 60px;
-  margin-bottom: 15px;
+  width: 45px;
+  height: 45px;
+  //margin-bottom: 15px;
+  float: left;
 }
 
 .tools-sec ul li p {
   font-size: 16px;
   color: #5f6368;
+  margin: 12px 0px;
 }
 
 .tools-sec ul li {
@@ -2547,6 +2553,23 @@ span.email-notes {
  .case-study-title {
     visibility: hidden;
   }
+  .tools-sec ul li img {
+     float: none;
+   }
+   .tools-sec ul li {
+     width: 40%;
+   }
+}
+
+.tools-sec ul li:hover {
+  //background: white;
+  //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transform: scale(1.15, 1.15);
+}
+
+.tools-sec ul li:hover {
+  opacity: 1;
 }
 
 /*----------------------------------------
