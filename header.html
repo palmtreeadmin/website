@@ -27,17 +27,16 @@
   /*----------------------------
    Highlight navbar when page loads
   ------------------------------ */
-
   if (pathname && pathname.indexOf("index") === -1) {
     $('.main-menu ul.navbar-nav li a').each(function(){
         var $this = $(this);
-	$this.parent().removeClass('active');
+	      $this.parent().removeClass('active');
         // if the current path is like this link, make it active
         if($this.attr('href').indexOf(pathname) !== -1){
           $this.parent().addClass('active');
         } else {
-	  $this.attr('href', "/#" + $this.text().toLowerCase());
-	}
+	        $this.attr('href', "/#" + $this.text().toLowerCase());
+	      }
     })
    }
 
@@ -86,11 +85,9 @@
                   <li>
 	                  <a class="page-scroll" href="#services">Services</a>
                   </li>
-<!--
                   <li>
                     <a class="page-scroll" href="/case-studies.html">Case Studies</a>
-		          </li>
--->
+		              </li>
                   <li>
                     <a class="page-scroll" href="#contact">Contact</a>
                   </li>
