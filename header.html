@@ -13,7 +13,7 @@
         s.removeClass("stick");
       }
     });
-    
+
     /*----------------------------
      Navbar nav
     ------------------------------ */
@@ -23,32 +23,36 @@
       main_menu.removeClass("active");
       $(this).addClass("active");
     });
-    
+
     /*----------------------------
      Highlight navbar when page loads
     ------------------------------ */
-    if (pathname && pathname.indexOf("index") === -1) {
+    if (pathname.indexOf("index") == -1 && window.location.href.split("/")[3]) {
       $('.main-menu ul.navbar-nav li a').each(function(){
-          var $this = $(this);
-         $this.parent().removeClass('active');
-          // if the current path is like this link, make it active
-          if($this.attr('href').indexOf(pathname) !== -1){
+        var $this = $(this);
+        $this.parent().removeClass('active');
+        // if the current path is like this link, make it active
+        if($this.attr('href').indexOf(pathname) !== -1){
+          if (window.location.href.split('/')[3] == $this.attr('href')){
             $this.parent().addClass('active');
-          } else {
-           $this.attr('href', "/#" + $this.text().toLowerCase());
-         }
+          } else if (!window.location.href.split('/')[3].startsWith("#")) {
+              $this.parent().addClass('active');
+          }
+        } else {
+          $this.attr('href', "/#" + $this.text().toLowerCase());
+        }
       })
-     }
-    
-      var page_scroll = $('a.page-scroll');
+    }
+
+    var page_scroll = $('a.page-scroll');
       page_scroll.on('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
           scrollTop: $($anchor.attr('href')).offset().top - 55
-        }, 1500, 'easeInOutExpo');
+      }, 1500, 'easeInOutExpo');
         event.preventDefault();
-      });
-    
+    });
+
   </script>
   <!-- header-area start -->
   <div id="sticker" class="header-area">
@@ -85,7 +89,7 @@
                   <a class="page-scroll" href="#services">Services</a>
                 </li>
                 <li>
-                  <a class="page-scroll" href="/case-studies">Case Studies</a>
+                  <a class="page-scroll" href="/case-studies.html">Case Studies</a>
                 </li>
                 <li>
                   <a class="page-scroll" href="#contact">Contact</a>
