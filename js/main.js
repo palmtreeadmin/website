@@ -69,12 +69,6 @@
     offset: 80
   });
 
-  /*---------------------
-    Venobox
-  --------------------- */
-  var veno_box = $('.venobox');
-  veno_box.venobox();
-
   /*----------------------------
   Page Scroll
   ------------------------------ */
@@ -122,95 +116,6 @@
     panel_test.removeClass('active');
     $(this).addClass('active');
   });
-
-  /*---------------------
-   Testimonial carousel
-  ---------------------*/
-  var test_carousel = $('.testimonial-carousel');
-  test_carousel.owlCarousel({
-    loop: true,
-    nav: false,
-    dots: true,
-    autoplay: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      768: {
-        items: 1
-      },
-      1000: {
-        items: 1
-      }
-    }
-  });
-  /*----------------------------
-   isotope active
-  ------------------------------ */
-  // portfolio start
-  $(window).on("load", function() {
-    var $container = $('.awesome-project-content');
-    $container.isotope({
-      filter: '*',
-      animationOptions: {
-        duration: 750,
-        easing: 'linear',
-        queue: false
-      }
-    });
-    var pro_menu = $('.project-menu li a');
-    pro_menu.on("click", function() {
-      var pro_menu_active = $('.project-menu li a.active');
-      pro_menu_active.removeClass('active');
-      $(this).addClass('active');
-      var selector = $(this).attr('data-filter');
-      $container.isotope({
-        filter: selector,
-        animationOptions: {
-          duration: 750,
-          easing: 'linear',
-          queue: false
-        }
-      });
-      return false;
-    });
-
-  });
-  //portfolio end
-
-  /*---------------------
-   Circular Bars - Knob
---------------------- */
-  if (typeof($.fn.knob) != 'undefined') {
-    var knob_tex = $('.knob');
-    knob_tex.each(function() {
-      var $this = $(this),
-        knobVal = $this.attr('data-rel');
-
-      $this.knob({
-        'draw': function() {
-          $(this.i).val(this.cv + '%')
-        }
-      });
-
-      $this.appear(function() {
-        $({
-          value: 0
-        }).animate({
-          value: knobVal
-        }, {
-          duration: 2000,
-          easing: 'swing',
-          step: function() {
-            $this.val(Math.ceil(this.value)).trigger('change');
-          }
-        });
-      }, {
-        accX: 0,
-        accY: -150
-      });
-    });
-  }
 
   /*---------------------
      Google Maps
