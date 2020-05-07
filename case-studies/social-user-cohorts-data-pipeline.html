@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Palmtree Infotech</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <!-- Favicons -->
+    <link href="../img/favicon.ico" rel="icon">
+    <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="../css/style.css" rel="stylesheet">
+    <!-- Responsive Stylesheet File -->
+    <link href="../css/responsive.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+      $(function(){
+        $("#header").load("../header.html");
+        $("#footer").load("../footer.html");
+      });
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#navbar-example">
+    <div id="preloader"></div>
+    <div id="header" class="header-inner-page"></div>
+    <div style="margin-top: 90px;">
+      <div class="container">
+        <h2 class="case-detail-title">Social User Cohorts Data PipeLine</h2>
+      </div>
+    </div>
+    <div class="container-case-study">
+      <div>
+        <div class="case-study-sec1">
+          <div class="container">
+            <div class="case-study-inner">
+              <div class="case-study-content">
+                <h3>Problem</h3>
+		<p>Large social news aggregation and discussion website needed to find user retention details. Cohort analysis was used to find user retention details. For running the Cohort analysis user data had to be collected, processed, stored and visualized.</p>
+		<p>User data were sent as streaming data at a very high rate. These user data had to be processed and stored to find out user retention ratio using cohort analysis</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="case-study-sec2">
+          <div class="container">
+            <h3 class="challenges-title" style="color: #fff">Challenges</h3>
+            <ul>
+	      <li>Processing large volumes (In terabytes) of streaming data</li>
+	      <li>Performance of the rate at which each record was processed</li>
+	      <li>Partitioning and Clustering BigQuery tables to optimize performance and to minimize querying cost</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tools-sec case-study-tools" style="margin: 30px 0px">
+          <div class="container">
+            <h3>Tools</h3>
+            <ul>
+              <li>
+                <img src="../img/case-studies/tools/google-pubsub.png" alt="">
+                <p>Google PubSub</p>
+              </li>
+              <li>
+                <img src="../img/case-studies/tools/google-bq.png" alt="">
+                <p>Google BigQuery</p>
+              </li>
+              <li>
+                <img src="../img/case-studies/tools/google-dataproc.png" alt="">
+                <p>Google Dataflow</p>
+              </li>
+              <li>
+                <img src="../img/case-studies/tools/google-data-studio.png" alt="">
+                <p>Google Data Studio</p>
+              </li>
+              <li>
+                <img src="../img/case-studies/tools/google-cloud-ml.png" alt="">
+                <p>Google Cloud ML</p>
+              </li>
+              <li>
+                <img src="../img/case-studies/tools/google-datalab.png" alt="">
+                <p>Google Datalab</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="result-sec" style="color: #000; background: none">
+          <div class="container">
+            <h3>Solution</h3>
+            <div>
+              <img src="../img/case-studies/data-pipeline.png" style="width: 48%; margin-right: 30px; vertical-align: top; margin-top: 6px">
+              <ul style="display: inline-block; width: 48%;">
+	        <li>User feeds were sent as high rates streaming data to Google PubSub from the aggregator</li>
+		<li>The data from Google PubSub was consumed by Google Dataflow using Apache Beam PubSub connector</li>
+		<li>Data cleansing and enrichment were done using Google Cloud Dataflow</li>
+		<li>Processed data was stored in Google BigQuery as it handles a huge volume of data</li>
+		<li>Data were further aggregated according to the cohort analysis and were stored in Google BigQuery as well. Google BigQuery scanned 20 TB of data within a few minutes</li>
+		<li>Google Data Studio templates were used for visualization of the data from BigQuery via BigQuery Connector</li>
+		<li>Google CloudML was used for prediction and anomaly detection on the historical data</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Start Footer bottom Area -->
+    <div id="footer"></div>
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <!-- JavaScript Libraries -->
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../lib/appear/jquery.appear.js"></script>
+    <script src="../lib/isotope/isotope.pkgd.min.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="../js/main.js"></script>
+  </body>
+</html>
