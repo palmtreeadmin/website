@@ -33,7 +33,7 @@
     <div id="header" class="header-inner-page"></div>
     <div style="margin-top: 90px;">
       <div class="container">
-        <h2 class="case-detail-title">Social User Cohorts Data PipeLine</h2>
+        <h2 class="case-detail-title">Social User Cohorts Data Pipeline</h2>
       </div>
     </div>
     <div class="container-case-study">
@@ -43,8 +43,8 @@
             <div class="case-study-inner">
               <div class="case-study-content">
                 <h3>Problem</h3>
-		<p>Large social news aggregation and discussion website needed to find user retention details. Cohort analysis was used to find user retention details. For running the Cohort analysis user data had to be collected, processed, stored and visualized.</p>
-		<p>User data were sent as streaming data at a very high rate. These user data had to be processed and stored to find out user retention ratio using cohort analysis</p>
+                <p>Large social news aggregation and discussion website needed to find user retention details. Cohort analysis was used to find user retention details. For running the Cohort analysis user data had to be collected, processed, stored and visualized.</p>
+                <p>User data were sent as streaming data at a very high rate. These user data had to be processed and stored to find out user retention ratio using cohort analysis</p>
               </div>
             </div>
           </div>
@@ -53,9 +53,9 @@
           <div class="container">
             <h3 class="challenges-title" style="color: #fff">Challenges</h3>
             <ul>
-	      <li>Processing large volumes (In terabytes) of streaming data</li>
-	      <li>Performance of the rate at which each record was processed</li>
-	      <li>Partitioning and Clustering BigQuery tables to optimize performance and to minimize querying cost</li>
+              <li>Processing large volumes (In terabytes) of streaming data</li>
+              <li>Performance of the rate at which each record was processed</li>
+              <li>Partitioning and Clustering BigQuery tables to optimize performance and to minimize querying cost</li>
             </ul>
           </div>
         </div>
@@ -94,15 +94,15 @@
           <div class="container">
             <h3>Solution</h3>
             <div>
-              <img src="../img/case-studies/data-pipeline.png" style="width: 48%; margin-right: 30px; vertical-align: top; margin-top: 6px">
-              <ul style="display: inline-block; width: 48%;">
-	        <li>User feeds were sent as high rates streaming data to Google PubSub from the aggregator</li>
-		<li>The data from Google PubSub was consumed by Google Dataflow using Apache Beam PubSub connector</li>
-		<li>Data cleansing and enrichment were done using Google Cloud Dataflow</li>
-		<li>Processed data was stored in Google BigQuery as it handles a huge volume of data</li>
-		<li>Data were further aggregated according to the cohort analysis and were stored in Google BigQuery as well. Google BigQuery scanned 20 TB of data within a few minutes</li>
-		<li>Google Data Studio templates were used for visualization of the data from BigQuery via BigQuery Connector</li>
-		<li>Google CloudML was used for prediction and anomaly detection on the historical data</li>
+              <img src="../img/case-studies/data-pipeline.png" style="margin-right: 30px; vertical-align: top; margin-top: 6px">
+              <ul style="display: inline-block; margin-top: 30px">
+                <li>User feeds were sent as high rates streaming data to Google PubSub from the aggregator</li>
+                <li>The data from Google PubSub was consumed by Google Dataflow using Apache Beam PubSub connector</li>
+                <li>Data cleansing and enrichment were done using Google Cloud Dataflow</li>
+                <li>Processed data was stored in Google BigQuery as it handles a huge volume of data</li>
+                <li>Data were further aggregated according to the cohort analysis and were stored in Google BigQuery as well. Google BigQuery scanned 20 TB of data within a few minutes</li>
+                <li>Google Data Studio templates were used for visualization of the data from BigQuery via BigQuery Connector</li>
+                <li>Google CloudML was used for prediction and anomaly detection on the historical data</li>
               </ul>
             </div>
           </div>
