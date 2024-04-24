@@ -95,15 +95,15 @@ jQuery(document).ready(function($) {
       url: "https://formsubmit.co/ajax/preethy@palmtreeinfotech.com",
       data: str,
       success: function(msg) {
-        // alert(msg);
-        if (msg == 'OK') {
+        const parsedMsg = JSON.parse(msg)
+        if (parsedMsg.success == true) {
           $("#sendmessage").addClass("show");
           $("#errormessage").removeClass("show");
           $('.contactForm').find("input, textarea").val("");
         } else {
           $("#sendmessage").removeClass("show");
           $("#errormessage").addClass("show");
-          $('#errormessage').html(msg);
+          $('#errormessage').html(parsedMsg.message);
         }
 
       }
