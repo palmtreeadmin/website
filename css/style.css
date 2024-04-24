@@ -2271,6 +2271,7 @@ span.email-notes {
 .case-studies {
   margin: 0px 10px 20px;
   border: 1px solid #e5e5e5;
+  height: 369px;
 }
 
 .case-content {
@@ -2283,6 +2284,18 @@ span.email-notes {
   font-size: 17px;
   line-height: 22px;
   color: #3ec1d5;
+}
+
+@media only screen and (min-width: 992px) {
+  .case-studies {
+    height: 410px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .case-studies {
+    height: 369px;
+  }
 }
 
 .more-btn a {
@@ -2408,6 +2421,8 @@ span.email-notes {
   display: block;
   width: 100%;
   height: auto;
+  min-height: 165px;
+  max-height: 165px;
 }
 
 .overlay {
