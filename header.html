@@ -28,11 +28,19 @@
     }
   }
 
+  var page_scroll = $('a.page-scroll');
+      page_scroll.on('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+          scrollTop: $($anchor.attr('href')).offset().top - 55
+      }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+
     /**
    * Mobile nav toggle
    */
     on('click', '.mobile-nav-toggle', function(e) {
-      console.log("clickccccccccc");
       select('#navbar').classList.toggle('navbar-mobile')
       this.classList.toggle('bi-list')
       this.classList.toggle('bi-x')
@@ -42,24 +50,24 @@
   <div class="container d-flex justify-content-between">
 
     <div class="logo">
-      <h1><a href="index.html"></a><span>P</span>almtree</a></h1>
+      <h1><a href="index.html"><span>P</span>almtree</a></h1>
     </div>
     <nav id="navbar" class="navbar">
       <ul>
         <li>
-          <a class="nav-link scrollto active" href="#home">Home</a>
+          <a class="nav-link scrollto page-scroll active" href="#home">Home</a>
         </li>
         <li>
-          <a class="nav-link scrollto" href="#about">About</a>
+          <a class="nav-link scrollto page-scroll" href="#about">About</a>
         </li>
         <li>
-          <a class="nav-link scrollto" href="#services">Services</a>
+          <a class="nav-link scrollto page-scroll" href="#services">Services</a>
         </li>
         <li>
-          <a class="nav-link scrollto" href="/case-studies">Case Studies</a>
+          <a class="nav-link scrollto page-scroll" href="/case-studies">Case Studies</a>
         </li>
         <li>
-          <a class="nav-link scrollto" href="#contact">Contact</a>
+          <a class="nav-link scrollto page-scroll" href="#contact">Contact</a>
         </li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
