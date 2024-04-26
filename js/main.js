@@ -63,11 +63,15 @@
   /*----------------------------
    Scrollspy js
   ------------------------------ */
-  var Body = $('body');
+  var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+    target: '.navbar-example',
+    offset: 80
+  })
+  /*var Body = $('body');
   Body.scrollspy({
     target: '.navbar-collapse',
     offset: 80
-  });
+  });*/
 
   /*----------------------------
   Page Scroll
