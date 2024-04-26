@@ -1,108 +1,68 @@
-<header>
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
   <script>
-    /*---------------------
-     TOP Menu Stick
-    --------------------- */
-    var s = $("#sticker");
-    var pos = s.position();
-    $(window).on('scroll', function() {
-      var windowpos = $(window).scrollTop() > 300;
-      if (windowpos > pos.top) {
-        s.addClass("stick");
-      } else {
-        s.removeClass("stick");
-      }
-    });
-
-    /*----------------------------
-     Navbar nav
-    ------------------------------ */
-    var pathname = window.location.pathname.split( '/' )[1];
-    var main_menu = $(".main-menu ul.navbar-nav li ");
-    main_menu.on('click', function() {
-      main_menu.removeClass("active");
-      $(this).addClass("active");
-    });
-
-    /*----------------------------
-     Highlight navbar when page loads
-    ------------------------------ */
-    if (pathname.indexOf("index") == -1 && window.location.href.split("/")[3]) {
-      $('.main-menu ul.navbar-nav li a').each(function(){
-        var $this = $(this);
-        $this.parent().removeClass('active');
-        // if the current path is like this link, make it active
-        if($this.attr('href').indexOf(pathname) !== -1){
-          if (window.location.href.split('/')[3] == $this.attr('href')){
-            $this.parent().addClass('active');
-          } else if (!window.location.href.split('/')[3].startsWith("#")) {
-              $this.parent().addClass('active');
-          }
-        } else {
-          $this.attr('href', "/#" + $this.text().toLowerCase());
-        }
-      })
+  (function() {
+    "use strict";
+      /**
+   * Easy selector helper function
+   */
+  const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
     }
+  }
+     /**
+   * Easy event listener function
+   */
+  const on = (type, el, listener, all = false) => {
+    let selectEl = select(el, all)
+    if (selectEl) {
+      if (all) {
+        selectEl.forEach(e => e.addEventListener(type, listener))
+      } else {
+        selectEl.addEventListener(type, listener)
+      }
+    }
+  }
 
-    var page_scroll = $('a.page-scroll');
-      page_scroll.on('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-          scrollTop: $($anchor.attr('href')).offset().top - 55
-      }, 1500, 'easeInOutExpo');
-        event.preventDefault();
-    });
-
+    /**
+   * Mobile nav toggle
+   */
+    on('click', '.mobile-nav-toggle', function(e) {
+      console.log("clickccccccccc");
+      select('#navbar').classList.toggle('navbar-mobile')
+      this.classList.toggle('bi-list')
+      this.classList.toggle('bi-x')
+    })
+  })()
   </script>
-  <!-- header-area start -->
-  <div id="sticker" class="header-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-          <!-- Navigation -->
-          <nav class="navbar navbar-default">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              </button>
-              <!-- Brand -->
-              <a class="navbar-brand page-scroll sticky-logo" href="/">
-                <h1><span>P</span>almtree</h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <img src="img/logo.png" alt="" title=""> -->
-              </a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
-              <ul class="nav navbar-nav navbar-right">
-                <li class="active">
-                  <a class="page-scroll" href="#home">Home</a>
-                </li>
-                <li>
-                  <a class="page-scroll" href="#about">About</a>
-                </li>
-                <li>
-                  <a class="page-scroll" href="#services">Services</a>
-                </li>
-                <li>
-                  <a class="page-scroll" href="/case-studies">Case Studies</a>
-                </li>
-                <li>
-                  <a class="page-scroll" href="#contact">Contact</a>
-                </li>
-              </ul>
-            </div>
-            <!-- navbar-collapse -->
-          </nav>
-          <!-- END: Navigation -->
-        </div>
-      </div>
+  <div class="container d-flex justify-content-between">
+
+    <div class="logo">
+      <h1><a href="index.html"></a><span>P</span>almtree</a></h1>
     </div>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li>
+          <a class="nav-link scrollto active" href="#home">Home</a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="#about">About</a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="#services">Services</a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="/case-studies">Case Studies</a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="#contact">Contact</a>
+        </li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
   </div>
-  <!-- header-area end -->
-</header>
-<!-- header end -->
+</header><!-- End Header -->

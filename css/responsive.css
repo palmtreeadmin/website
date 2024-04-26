@@ -146,7 +146,7 @@
   .main-menu ul.navbar-nav li.active a::after, .stick .main-menu ul.navbar-nav li.active a::after {
     border: 0px solid #fff;
   }
-  .logo {
+  /* .logo {
     height: inherit;
     left: 0;
     padding: 0;
@@ -156,7 +156,7 @@
   }
   .logo a {
     padding: 0;
-  }
+  } */
 
   .slider-area {
     margin-top: 60px;
