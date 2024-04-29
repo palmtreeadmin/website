@@ -2251,7 +2251,7 @@ span.email-notes {
 .tools-sec ul li img{
   width: 45px;
   height: 45px;
-  //margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   float: left;
 }
 
@@ -2749,6 +2749,15 @@ span.email-notes {
 
 .navbar-mobile .dropdown>.dropdown-active {
   display: block;
+}
+
+@media only screen and (max-width: 768px) {
+  .case-studies {
+    height: auto;
+  }
+  .case-studies-sec h2 {
+    text-align: center;
+  }
 }
 
 
