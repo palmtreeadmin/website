@@ -297,3 +297,10 @@
     padding: 8px 20px;
   }
 }
+
+@media only screen and (max-width: 480px) {
+  .slider-content h1{
+    font-size: 16px !important;
+    line-height: 22px !important;
+  }
+}
