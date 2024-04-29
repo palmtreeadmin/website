@@ -143,7 +143,6 @@ body {
   overflow-x: hidden;
   line-height: 22px;
   max-width: 100%;
-  position: relative;
 }
 
 /* Back to top button */
@@ -2761,6 +2760,9 @@ span.email-notes {
   }
 }
 
+.niceties.preview-2 {
+  max-width: 100%;
+}
 
 @media only screen
     and (width: 393px)
