@@ -92,7 +92,7 @@ jQuery(document).ready(function($) {
     else var str = $(this).serialize();
     $.ajax({
       type: "POST",
-      url: "https://formsubmit.co/ajax/preethy@palmtreeinfotech.com",
+      url: "https://formsubmit.co/ajax/rajesh@palmtreeinfotech.com",
       data: str,
       success: function(msg) {
         const parsedMsg = JSON.parse(msg)
