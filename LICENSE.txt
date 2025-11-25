@@ -1,8 +1,0 @@
- Copyright (C) ${year} ${organization} <${email}>
-
- Palmtree Infotech PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- This software is the confidential and proprietary information of
- Palmtree Infotech ("Confidential Information"). You shall not disclose such
- Confidential Information and shall use it only in accordance with the terms
- of the license agreement you entered into with Palmtree Infotech.
- 
