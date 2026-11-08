@@ -1,0 +1,46 @@
+---
+import { CONTACT } from '../config';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap grid">
+    <div class="brand">
+      <a class="wordmark" href="/">Palmtree<span aria-hidden="true">.</span></a>
+      <p>AI consultancy and product engineering from Chennai, built on more than a decade of shipped data work.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="/#build">What we build</a></li>
+        <li><a href="/case-studies">Case studies</a></li>
+        <li><a href="/#india">India teams</a></li>
+        <li><a href="/stack">Stack</a></li>
+        <li><a href="/salesforce-devops">Salesforce DevOps</a></li>
+      </ul>
+    </nav>
+    <address>
+      <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a><br />
+      <a href={CONTACT.phoneHref}>{CONTACT.phone}</a><br />
+      {CONTACT.address[0]},<br />{CONTACT.address[1]}
+    </address>
+    <ul class="social">
+      <li><a href={CONTACT.linkedin} rel="noopener">LinkedIn</a></li>
+      <li><a href={CONTACT.twitter} rel="noopener">X / Twitter</a></li>
+    </ul>
+  </div>
+  <div class="wrap legal"><p>© {year} Palmtree Infotech</p></div>
+</footer>
+
+<style>
+  .site-footer { margin-top: var(--step-section); border-top: 1px solid var(--ink); padding-block: 3.5rem 2rem; font-size: 0.9375rem; color: var(--ink-2); }
+  .grid { display: grid; grid-template-columns: 2fr 1fr 1.3fr 0.8fr; gap: 2.5rem; }
+  .wordmark { font-weight: 700; font-size: 1.5rem; letter-spacing: -0.035em; text-decoration: none; color: var(--ink); }
+  .wordmark span { color: var(--palm); }
+  .brand p { margin-top: 0.75rem; max-width: 26rem; }
+  ul { list-style: none; padding: 0; display: grid; gap: 0.5rem; align-content: start; }
+  a { text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  address { font-style: normal; line-height: 1.7; }
+  .legal { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); font-size: var(--t-small); color: var(--ink-3); }
+  @media (max-width: 56rem) { .grid { grid-template-columns: 1fr 1fr; } .brand { grid-column: 1 / -1; } }
+  @media (max-width: 30rem) { .grid { grid-template-columns: 1fr; } }
+</style>

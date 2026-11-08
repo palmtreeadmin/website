@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import Arrow from '../components/Arrow.astro';
+
+const platforms = [
+  { name: 'Flosum', text: 'A Salesforce DevOps platform with tools to streamline and manage the application lifecycle on Salesforce.',
+    uses: ['Version control and release management', 'Continuous integration and delivery (CI/CD)', 'Compliance and security', 'Automated backups and disaster recovery', 'Change and impact analysis'] },
+  { name: 'AutoRABIT', text: 'A DevOps platform built for Salesforce, covering development, deployment and compliance.',
+    uses: ['Continuous integration and delivery (CI/CD)', 'Version control integration', 'Automated data backup and recovery', 'Compliance and security', 'Release management', 'Data Loader for Salesforce', 'Impact analysis and change management', 'Automated testing', 'Environment synchronisation'] },
+  { name: 'Copado', text: 'An end-to-end Salesforce DevOps platform.',
+    uses: ['Automated deployments and continuous integration', 'Version control and source code management', 'Compliance and security management', 'Quality assurance and testing', 'Release and environment management', 'Change management and impact analysis', 'Backup and disaster recovery', 'DevOps for multi-cloud environments'] },
+  { name: 'Gearset', text: 'A platform for Salesforce version control, continuous integration and deployment automation.',
+    uses: ['Automated deployments and continuous integration', 'Version control and change tracking', 'Backup and restore', 'Monitoring and compliance', 'Environment management', 'Automated testing', 'Change analysis and impact assessment'] },
+];
+---
+<Base title="Salesforce DevOps: Palmtree Infotech" description="Palmtree works with Flosum, AutoRABIT, Copado and Gearset to bring version control, CI/CD, backup and compliance to Salesforce teams.">
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Salesforce DevOps</h1>
+      <p class="lead">The Salesforce DevOps platforms we work with, and the problems each one solves for release, compliance and recovery.</p>
+    </header>
+    <ul class="rows">
+      {platforms.map((p) => (
+        <li class="platform">
+          <div class="name"><h2>{p.name}</h2><p>{p.text}</p></div>
+          <ul class="uses">{p.uses.map((u) => <li>{u}</li>)}</ul>
+        </li>
+      ))}
+    </ul>
+    <p class="close">Not sure which fits your org? <a class="link-arrow" href="/#contact">Start a conversation <Arrow /></a></p>
+  </div>
+</Base>
+<style>
+  .page-head { padding-block: clamp(3rem, 6vw, 5rem) 3rem; display: grid; gap: 1.25rem; }
+  .platform { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr); gap: 3rem; padding-block: 2.5rem; }
+  .name { display: grid; gap: 0.75rem; align-content: start; }
+  .name p { color: var(--ink-2); max-width: 40ch; }
+  .uses { list-style: none; padding: 0; columns: 2; column-gap: 2.5rem; }
+  .uses li { break-inside: avoid; padding: 0.5rem 0 0.5rem 1.25rem; position: relative; border-bottom: 1px solid var(--rule); }
+  .uses li::before { content: ''; position: absolute; left: 0; top: 1.05rem; width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--ink); }
+  .close { margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: baseline; font-size: var(--t-h3); }
+  @media (max-width: 56rem) { .platform { grid-template-columns: 1fr; gap: 1.5rem; } .uses { columns: 1; } }
+</style>

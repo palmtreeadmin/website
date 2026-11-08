@@ -1,0 +1,73 @@
+---
+import '@fontsource-variable/schibsted-grotesk';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { GA4_ID, DRIFT_ID } from '../config';
+
+interface Props { title: string; description: string; current?: string }
+const { title, description, current } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, ''), Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#fafaf8" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Palmtree Infotech" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {GA4_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+        <script is:inline define:vars={{ GA4_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          gtag('js', new Date()); gtag('config', GA4_ID);
+        </script>
+      </>
+    )}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header current={current} />
+    <main id="main"><slot /></main>
+    <Footer />
+    {DRIFT_ID && (
+      <script is:inline define:vars={{ DRIFT_ID }}>
+        // Load chat only once the visitor interacts, so it never blocks first paint.
+        (function () {
+          var loaded = false;
+          function load() {
+            if (loaded) return; loaded = true;
+            var t = window.driftt = window.drift = window.driftt || [];
+            if (t.init || t.invoked) return;
+            t.invoked = true;
+            t.methods = ['identify','config','track','reset','debug','show','ping','page','hide','off','on'];
+            t.factory = function (e) { return function () { var n = Array.prototype.slice.call(arguments); n.unshift(e); t.push(n); return t; }; };
+            t.methods.forEach(function (e) { t[e] = t.factory(e); });
+            t.load = function (id) {
+              var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement('script');
+              o.async = true; o.crossOrigin = 'anonymous';
+              o.src = 'https://js.driftt.com/include/' + n + '/' + id + '.js';
+              document.head.appendChild(o);
+            };
+            t.SNIPPET_VERSION = '0.3.1';
+            t.load(DRIFT_ID);
+          }
+          ['pointerdown', 'keydown', 'scroll'].forEach(function (ev) { window.addEventListener(ev, load, { once: true, passive: true }); });
+        })();
+      </script>
+    )}
+  </body>
+</html>

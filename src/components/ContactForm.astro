@@ -1,0 +1,110 @@
+---
+import { FORMSPREE_ENDPOINT, CONTACT } from '../config';
+import Arrow from './Arrow.astro';
+---
+<form class="contact-form" action={FORMSPREE_ENDPOINT} method="POST" novalidate data-contact data-email={CONTACT.email}>
+  <div class="field">
+    <label for="cf-name">Name</label>
+    <input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-err" />
+    <p class="err" id="cf-name-err" hidden>Enter your name.</p>
+  </div>
+  <div class="field">
+    <label for="cf-email">Work email</label>
+    <input id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="cf-email-err" />
+    <p class="err" id="cf-email-err" hidden>Enter an email address we can reply to, like name@company.com.</p>
+  </div>
+  <div class="field">
+    <label for="cf-company">Company <span class="opt">optional</span></label>
+    <input id="cf-company" name="company" type="text" autocomplete="organization" />
+  </div>
+  <div class="field">
+    <label for="cf-message">What are you working on?</label>
+    <textarea id="cf-message" name="message" rows="5" required aria-describedby="cf-message-hint cf-message-err"></textarea>
+    <p class="hint" id="cf-message-hint">The data you have, the result you need, and any deadline.</p>
+    <p class="err" id="cf-message-err" hidden>Tell us a little about the project.</p>
+  </div>
+  <input class="trap" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <div class="actions">
+    <button class="btn" type="submit">Send message <Arrow /></button>
+    <p class="status" role="status" aria-live="polite"></p>
+  </div>
+</form>
+
+<script>
+  for (const form of document.querySelectorAll<HTMLFormElement>('[data-contact]')) {
+    const status = form.querySelector<HTMLElement>('.status')!;
+    const button = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+    const email = form.dataset.email!;
+    const label = button.innerHTML;
+    const fields = [...form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[required]')];
+
+    const check = (f: HTMLInputElement | HTMLTextAreaElement) => {
+      const ok = f.value.trim() !== '' && f.checkValidity();
+      f.setAttribute('aria-invalid', String(!ok));
+      document.getElementById(`${f.id}-err`)!.hidden = ok;
+      return ok;
+    };
+    fields.forEach((f) => f.addEventListener('blur', () => { if (f.getAttribute('aria-invalid')) check(f); }));
+
+    const fail = (msg: string) => {
+      status.dataset.state = 'error';
+      status.innerHTML = `${msg} Email us directly at <a href="mailto:${email}">${email}</a>.`;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const bad = fields.filter((f) => !check(f));
+      if (bad.length) { bad[0].focus(); status.textContent = ''; return; }
+      if (form.action.includes('YOUR_FORM_ID')) { fail('The contact form isn’t connected yet.'); return; }
+
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      status.dataset.state = '';
+      status.textContent = '';
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (!res.ok) {
+          let detail = '';
+          try { detail = (await res.json())?.errors?.map((x: { message: string }) => x.message).join(' ') ?? ''; } catch {}
+          throw new Error(detail);
+        }
+        form.reset();
+        fields.forEach((f) => f.removeAttribute('aria-invalid'));
+        status.dataset.state = 'ok';
+        status.textContent = 'Thanks. Your message has been sent, and we’ll reply to the address you gave.';
+      } catch (err) {
+        const detail = err instanceof Error && err.message ? `${err.message}.` : '';
+        fail(`Your message didn’t send. ${detail}`);
+      } finally {
+        button.disabled = false;
+        button.innerHTML = label;
+      }
+    });
+  }
+</script>
+
+<style>
+  .contact-form { display: grid; gap: 1.5rem; }
+  .field { display: grid; gap: 0.5rem; }
+  label { font-weight: 600; font-size: 0.9375rem; }
+  .opt { font-weight: 400; color: var(--ink-3); margin-left: 0.25rem; }
+  input, textarea {
+    font: 400 1rem/1.5 var(--sans); color: var(--ink);
+    background: #fff; border: 1px solid var(--edge); border-radius: 0;
+    padding: 0.75rem 0.875rem; min-height: 3rem; width: 100%;
+    transition: border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
+    caret-color: var(--palm);
+  }
+  textarea { resize: vertical; min-height: 8.5rem; }
+  input:hover, textarea:hover { border-color: var(--ink-3); }
+  input:focus-visible, textarea:focus-visible { outline: none; border-color: var(--palm); box-shadow: 0 0 0 3px var(--palm-wash); }
+  [aria-invalid='true'] { border-color: var(--error); }
+  .hint { font-size: var(--t-small); color: var(--ink-3); }
+  .err { font-size: var(--t-small); color: var(--error); font-weight: 500; }
+  .trap { position: absolute; left: -10000px; width: 1px; height: 1px; opacity: 0; }
+  .actions { display: grid; gap: 1rem; justify-items: start; }
+  .status { font-size: 0.9375rem; min-height: 1.5em; }
+  .status[data-state='ok'] { color: var(--palm-deep); font-weight: 600; }
+  .status[data-state='error'] { color: var(--error); }
+  .status :global(a) { color: inherit; font-weight: 600; }
+</style>

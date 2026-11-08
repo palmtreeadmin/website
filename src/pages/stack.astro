@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import Arrow from '../components/Arrow.astro';
+
+const groups = [
+  { name: 'Google Cloud', items: ['Compute Engine', 'App Engine', 'BigQuery', 'Dataflow', 'Dataproc', 'Cloud Storage', 'Pub/Sub', 'Cloud Composer', 'Dataprep', 'Kubernetes Engine', 'Cloud ML', 'Data Studio'] },
+  { name: 'Amazon Web Services', items: ['EC2', 'RDS', 'Lambda', 'S3', 'Glacier', 'VPC', 'Route 53', 'DynamoDB', 'Redshift', 'CloudWatch', 'CloudFormation', 'IAM', 'EMR', 'Data Pipeline', 'SNS', 'SES', 'SQS', 'SWF', 'IoT Button', 'Parameter Store', 'Athena', 'S3 Select', 'ECS', 'Rekognition'] },
+  { name: 'Microsoft Azure', items: ['Blob Storage', 'SQL Database', 'SQL Data Warehouse', 'HDInsight', 'Data Lake Store', 'Resource Manager', 'Data Factory', 'Power BI', 'Dynamics 365 CRM', 'SharePoint'] },
+  { name: 'Data and AI', items: ['Apache Spark', 'Apache Beam', 'Apache Kafka', 'Kafka Connect', 'Confluent KSQL', 'Apache Airflow', 'Snowflake', 'Pandas', 'Spark ML', 'Anthropic Claude', 'MCP', 'Tesseract OCR'] },
+  { name: 'Salesforce', items: ['Einstein Analytics', 'Flosum', 'AutoRABIT', 'Copado', 'Gearset'], link: { href: '/salesforce-devops', label: 'Salesforce DevOps' } },
+  { name: 'Cost optimisation', items: ['Spot for Kubernetes workloads'] },
+];
+---
+<Base title="Stack: Palmtree Infotech" description="The cloud platforms, data tools and AI services Palmtree builds with: Google Cloud, AWS, Azure, Salesforce and more." current="stack">
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Stack</h1>
+      <p class="lead">The platforms and tools our teams build with. Most of these appear in at least one shipped <a href="/case-studies">case study</a>.</p>
+    </header>
+    <ul class="rows">
+      {groups.map((g) => (
+        <li class="group" id={g.name.toLowerCase().replace(/ and /g, '-and-').replace(/[^a-z-]+/g, '-')}>
+          <h2>{g.name}</h2>
+          <div>
+            <ul class="items mono">{g.items.map((i) => <li>{i}</li>)}</ul>
+            {g.link && <a class="link-arrow" href={g.link.href}>{g.link.label} <Arrow /></a>}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+<style>
+  .page-head { padding-block: clamp(3rem, 6vw, 5rem) 3rem; display: grid; gap: 1.25rem; }
+  .group { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.6fr); gap: 2rem; padding-block: 2rem; }
+  .group h2 { font-size: var(--t-h3); letter-spacing: -0.012em; }
+  .items { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .items li { border: 1px solid var(--rule); padding: 0.35rem 0.6rem; background: #fff; }
+  .link-arrow { margin-top: 1.25rem; font-size: 0.9375rem; }
+  @media (max-width: 56rem) { .group { grid-template-columns: 1fr; gap: 1rem; } }
+</style>

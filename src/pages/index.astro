@@ -1,0 +1,164 @@
+---
+import Base from '../layouts/Base.astro';
+import LineageGraph from '../components/LineageGraph.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Arrow from '../components/Arrow.astro';
+import { BUILDS, getStudies } from '../data/lineage';
+import { CONTACT } from '../config';
+
+const studies = await getStudies();
+const featured = studies.filter((s) => s.data.featured);
+
+const buildRows = BUILDS.map((b) => {
+  const of = studies.filter((s) => s.data.build === b.id);
+  const freq = new Map<string, number>();
+  of.flatMap((s) => s.data.tools).forEach((t) => freq.set(t, (freq.get(t) ?? 0) + 1));
+  const tools = [...freq.entries()].sort((a, z) => z[1] - a[1]).slice(0, 4).map(([t]) => t);
+  return { ...b, count: of.length, tools };
+});
+
+const steps = [
+  { name: 'Scope the work', text: 'We start from your data, your systems and the result you need, and agree what ships first.' },
+  { name: 'Build with a Palmtree team', text: 'Senior Palmtree engineers in Chennai deliver the first releases inside your tools and process.' },
+  { name: 'Grow your own team', text: 'We help you hire and onboard engineers in India who learn the codebase alongside ours.' },
+  { name: 'Hand over', text: 'Ownership moves to your India team, and Palmtree stays available for support.' },
+];
+---
+<Base
+  title="Palmtree Infotech: AI consultancy and product engineering, Chennai"
+  description="Palmtree builds AI, data platforms and products on more than a decade of shipped data work, and helps companies set up engineering teams in India."
+>
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <h1 id="hero-title">AI and product engineering, wired into the data you already have.</h1>
+      <p class="lead">Palmtree is a Chennai team that has spent more than a decade shipping data platforms, analytics and apps. We build AI on top of that foundation, and help you set up your own engineering team in India.</p>
+    </div>
+    <LineageGraph studies={featured} trace="portuguese-book-translation-to-english" />
+  </section>
+
+  <section id="build" class="section wrap" aria-labelledby="build-title">
+    <div class="section-head">
+      <h2 id="build-title">What we build</h2>
+      <p class="lead">Five kinds of work, one senior team. Every line below leads to projects we have shipped.</p>
+    </div>
+    <ul class="rows builds">
+      {buildRows.map((b) => (
+        <li>
+          <a class="build-row" href={`/case-studies?build=${b.id}`}>
+            <h3><span class="node-dot" aria-hidden="true"></span>{b.name}</h3>
+            <p>{b.text}</p>
+            <p class="tools mono">{b.tools.join(' · ')}</p>
+            <span class="count">{b.count} case {b.count === 1 ? 'study' : 'studies'}<Arrow /></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="also">
+      <p>We also deliver</p>
+      <ul>
+        <li><a href="/salesforce-devops">Salesforce DevOps</a> with Flosum, AutoRABIT, Copado and Gearset</li>
+        <li><a href="/stack#cost-optimisation">Cloud cost optimisation</a> for Kubernetes workloads with Spot</li>
+        <li><a href="/stack#data-and-ai">Enterprise integration</a> and API transformation</li>
+        <li><a href="#contact">IoT solutions</a> for developers and enterprises</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="india" class="section india" aria-labelledby="india-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="india-title">Your engineering team in India</h2>
+        <p class="lead">Some work outgrows a project. When it does, we help you turn a Palmtree team in Chennai into one you own.</p>
+      </div>
+      <ol class="path">
+        {steps.map((s, i) => (
+          <li class={i === steps.length - 1 ? 'end' : undefined}>
+            <span class="node-dot node-dot--palm" aria-hidden="true"></span>
+            <h3>{s.name}</h3>
+            <p>{s.text}</p>
+          </li>
+        ))}
+      </ol>
+      <a class="btn btn--quiet" href="#contact">Talk about an India team <Arrow /></a>
+    </div>
+  </section>
+
+  <section class="section wrap platforms" aria-labelledby="platforms-title">
+    <h2 id="platforms-title" class="visually-hidden">Platforms</h2>
+    <p class="platform-line">We build on <strong>Google Cloud</strong>, <strong>AWS</strong>, <strong>Microsoft Azure</strong>, <strong>Salesforce</strong> and <strong>Spot</strong>.</p>
+    <a class="link-arrow" href="/stack">See the full stack <Arrow /></a>
+  </section>
+
+  <section id="contact" class="section wrap contact" aria-labelledby="contact-title">
+    <div class="contact-copy">
+      <h2 id="contact-title">Start a conversation</h2>
+      <p class="lead">Tell us about your data and the result you need. If we have shipped something like it, we will show you.</p>
+      <dl>
+        <div><dt>Email</dt><dd><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></dd></div>
+        <div><dt>Phone</dt><dd><a href={CONTACT.phoneHref}>{CONTACT.phone}</a><br /><span>{CONTACT.hours}</span></dd></div>
+        <div><dt>Office</dt><dd>{CONTACT.address[0]},<br />{CONTACT.address[1]}<br /><a href={CONTACT.mapHref} rel="noopener">Open in Google Maps</a></dd></div>
+      </dl>
+    </div>
+    <ContactForm />
+  </section>
+</Base>
+
+<style>
+  .hero { padding-top: clamp(2.25rem, 4vw, 3.25rem); display: grid; gap: clamp(2.25rem, 3.5vw, 3rem); }
+  .hero-copy { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1.25rem clamp(2rem, 5vw, 5rem); align-items: end; }
+  .hero h1 { font-size: clamp(2.5rem, 1.4rem + 3.2vw, 4rem); max-width: 22ch; }
+  .hero .lead { font-size: 1.0625rem; }
+  @media (max-width: 64rem) { .hero-copy { grid-template-columns: 1fr; } .hero .lead { font-size: var(--t-lead); } }
+
+  .build-row {
+    display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.5fr) minmax(0, 1.1fr) auto;
+    gap: 2rem; align-items: baseline; padding-block: 1.75rem; text-decoration: none; color: var(--ink);
+    transition: background-color 200ms var(--ease-out);
+  }
+  .build-row h3 { display: flex; align-items: center; gap: 0.75rem; }
+  .build-row p { color: var(--ink-2); max-width: 46ch; }
+  .build-row .tools { color: var(--ink-3); }
+  .build-row .count { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9375rem; white-space: nowrap; }
+  .build-row .count :global(svg) { width: 0.95em; height: 0.95em; transition: transform 240ms var(--ease-out); }
+  .build-row:hover h3 { color: var(--palm-deep); }
+  .build-row:hover .node-dot { background: var(--palm); }
+  .build-row:hover .count :global(svg) { transform: translateX(3px); }
+
+  .also { margin-top: 2.5rem; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 3.7fr); gap: 2rem; color: var(--ink-2); }
+  .also > p { font-weight: 600; color: var(--ink); }
+  .also ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem 2rem; }
+
+  .india { margin-top: var(--step-section); padding-bottom: var(--step-section); background: var(--paper-2); border-block: 1px solid var(--rule); }
+  .path { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin-bottom: 3rem; position: relative; }
+  .path li { position: relative; display: grid; gap: 0.75rem; align-content: start; padding-top: 2.25rem; }
+  .path li::before { content: ''; position: absolute; top: 0.3rem; left: 0.625rem; right: -2rem; height: 2px; background: var(--palm); }
+  .path li.end::before { display: none; }
+  .path .node-dot { position: absolute; top: 0; left: 0; width: 0.75rem; height: 0.75rem; }
+  .path p { color: var(--ink-2); max-width: 32ch; }
+
+  .platforms { padding-block: clamp(3rem, 6vw, 4.5rem) 0; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding-bottom: 0; }
+  .platform-line { font-size: var(--t-h3); max-width: 50rem; }
+  .platform-line strong { font-weight: 600; }
+
+  .contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2.5rem, 7vw, 7rem); border-top: 1px solid var(--ink); margin-top: clamp(3rem, 6vw, 4.5rem); padding-top: clamp(3rem, 6vw, 5rem); }
+  .contact-copy { display: grid; gap: 1.5rem; align-content: start; }
+  dl { display: grid; gap: 1.25rem; margin-top: 1rem; }
+  dl div { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+  dt { font-weight: 600; }
+  dd { color: var(--ink-2); }
+  dd span { color: var(--ink-3); font-size: var(--t-small); }
+
+  @media (max-width: 72rem) {
+    .build-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) auto; }
+    .build-row .tools { grid-column: 2; grid-row: 2; }
+  }
+  @media (max-width: 56rem) {
+    .build-row { grid-template-columns: 1fr; gap: 0.625rem; padding-block: 1.5rem; }
+    .build-row .tools { grid-column: auto; grid-row: auto; }
+    .also, .also ul { grid-template-columns: 1fr; gap: 0.75rem; }
+    .path { grid-template-columns: 1fr; gap: 0; }
+    .path li { padding: 0 0 2rem 2rem; }
+    .path li::before { top: 0.75rem; bottom: 0; left: 0.3rem; right: auto; width: 2px; height: auto; }
+    .contact { grid-template-columns: 1fr; }
+  }
+</style>

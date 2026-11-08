@@ -1,0 +1,210 @@
+---
+import { SOURCES, BUILDS, studyHref, type Study } from '../data/lineage';
+import Arrow from './Arrow.astro';
+
+interface Props { studies: Study[]; trace: string }
+const { studies, trace } = Astro.props;
+
+const usedSources = Object.keys(SOURCES).filter((s) => studies.some((st) => st.data.sources.includes(s as never)));
+const usedBuilds = BUILDS.filter((b) => studies.some((st) => st.data.build === b.id));
+const edges = studies.map((s) => ({ id: s.id, build: s.data.build, sources: s.data.sources }));
+---
+<figure class="lineage" data-lineage data-trace={trace} aria-labelledby="lineage-caption">
+  <figcaption id="lineage-caption" class="visually-hidden">
+    Shipped Palmtree work, traced from the kind of data each project started with, through what Palmtree built, to the result.
+  </figcaption>
+  <div class="cols">
+    <div class="col col-src">
+      <p class="axis" aria-hidden="true">Your data</p>
+      <ul>
+        {usedSources.map((s) => (
+          <li><button type="button" class="node src" data-node={`src:${s}`} aria-label={`Show work that started from ${SOURCES[s as keyof typeof SOURCES]}`}>
+            <span class="label">{SOURCES[s as keyof typeof SOURCES]}</span><span class="pin" data-pin="out"></span>
+          </button></li>
+        ))}
+      </ul>
+    </div>
+    <div class="col col-build">
+      <p class="axis" aria-hidden="true">Palmtree builds</p>
+      <ul>
+        {usedBuilds.map((b) => (
+          <li><a class="node build" href={`/case-studies?build=${b.id}`} data-node={`build:${b.id}`}>
+            <span class="pin" data-pin="in"></span><span class="label">{b.name}</span><span class="pin" data-pin="out"></span>
+          </a></li>
+        ))}
+      </ul>
+    </div>
+    <div class="col col-res">
+      <p class="axis" aria-hidden="true">Shipped result</p>
+      <ul>
+        {studies.map((s) => (
+          <li><a class="node res" href={studyHref(s)} data-node={`res:${s.id}`}>
+            <span class="pin" data-pin="in"></span>
+            <span class="label">{s.data.headline}</span>
+            <span class="trail">{SOURCES[s.data.sources[0]]} → {BUILDS.find((b) => b.id === s.data.build)!.short}</span>
+            <span class="sector">{s.data.sector}</span>
+          </a></li>
+        ))}
+      </ul>
+      <div class="ends"><a class="btn" href="#contact">Start a conversation <Arrow /></a><a class="all link-arrow" href="/case-studies">All case studies <Arrow /></a></div>
+    </div>
+  </div>
+  <svg class="edges" aria-hidden="true"></svg>
+  <script type="application/json" data-edges set:html={JSON.stringify(edges)} />
+</figure>
+
+<script>
+  type Edge = { id: string; build: string; sources: string[] };
+  const NS = 'http://www.w3.org/2000/svg';
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-lineage]')) {
+    const svg = root.querySelector<SVGSVGElement>('svg.edges')!;
+    const edges: Edge[] = JSON.parse(root.querySelector('[data-edges]')!.textContent!);
+    const node = (key: string) => root.querySelector<HTMLElement>(`[data-node="${key}"]`);
+    const pin = (el: HTMLElement, side: 'in' | 'out') => el.querySelector<HTMLElement>(`[data-pin="${side}"]`)!;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    const wide = matchMedia('(min-width: 56.01rem)');
+
+    // One path per hop; each carries the studies it belongs to.
+    type Hop = { from: HTMLElement; to: HTMLElement; ids: Set<string>; el?: SVGPathElement };
+    const hops = new Map<string, Hop>();
+    const addHop = (a: string, b: string, id: string) => {
+      const k = `${a}>${b}`;
+      const from = node(a), to = node(b);
+      if (!from || !to) return;
+      if (!hops.has(k)) hops.set(k, { from, to, ids: new Set() });
+      hops.get(k)!.ids.add(id);
+    };
+    for (const e of edges) {
+      for (const s of e.sources) addHop(`src:${s}`, `build:${e.build}`, e.id);
+      addHop(`build:${e.build}`, `res:${e.id}`, e.id);
+    }
+
+    const draw = () => {
+      svg.replaceChildren();
+      if (!wide.matches) return;
+      const box = root.getBoundingClientRect();
+      svg.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+      for (const h of hops.values()) {
+        const a = pin(h.from, 'out').getBoundingClientRect();
+        const b = pin(h.to, 'in').getBoundingClientRect();
+        const x1 = a.left + a.width / 2 - box.left, y1 = a.top + a.height / 2 - box.top;
+        const x2 = b.left + b.width / 2 - box.left, y2 = b.top + b.height / 2 - box.top;
+        const mx = (x1 + x2) / 2;
+        const p = document.createElementNS(NS, 'path');
+        p.setAttribute('d', `M${x1} ${y1} C${mx} ${y1} ${mx} ${y2} ${x2} ${y2}`);
+        h.el = p;
+        svg.append(p);
+      }
+      apply(current, false);
+    };
+
+    const related = (key: string) => {
+      const [kind, id] = key.split(':');
+      if (kind === 'res') return new Set([id]);
+      return new Set(edges.filter((e) => (kind === 'src' ? e.sources.includes(id) : e.build === id)).map((e) => e.id));
+    };
+
+    let current = root.dataset.trace!;
+    const fallback = `res:${current}`;
+    current = fallback;
+
+    const apply = (key: string, animate: boolean) => {
+      current = key;
+      const ids = related(key);
+      root.classList.add('is-tracing');
+      for (const el of root.querySelectorAll<HTMLElement>('[data-node]')) {
+        const [kind, id] = el.dataset.node!.split(':');
+        const on = kind === 'res' ? ids.has(id)
+          : edges.some((e) => ids.has(e.id) && (kind === 'src' ? e.sources.includes(id) : e.build === id));
+        el.classList.toggle('on', on);
+      }
+      for (const h of hops.values()) {
+        if (!h.el) continue;
+        const on = [...h.ids].some((id) => ids.has(id));
+        h.el.classList.toggle('on', on);
+        if (on && animate && !reduce.matches) {
+          const len = h.el.getTotalLength();
+          h.el.style.strokeDasharray = `${len}`;
+          h.el.style.strokeDashoffset = `${len}`;
+          h.el.getBoundingClientRect();
+          h.el.style.transition = 'stroke-dashoffset 900ms cubic-bezier(0.16, 1, 0.3, 1)';
+          h.el.style.strokeDashoffset = '0';
+          h.el.addEventListener('transitionend', () => { h.el!.style.cssText = ''; }, { once: true });
+        }
+      }
+    };
+
+    for (const el of root.querySelectorAll<HTMLElement>('[data-node]')) {
+      const key = el.dataset.node!;
+      el.addEventListener('pointerenter', () => apply(key, false));
+      el.addEventListener('focus', () => apply(key, false));
+      if (el.tagName === 'BUTTON') el.addEventListener('click', () => apply(key, true));
+    }
+    root.addEventListener('pointerleave', () => apply(fallback, false));
+    root.addEventListener('focusout', (e) => { if (!root.contains(e.relatedTarget as Node)) apply(fallback, false); });
+
+    new ResizeObserver(draw).observe(root);
+    document.fonts?.ready.then(() => { draw(); apply(fallback, true); });
+  }
+</script>
+
+<style>
+  .lineage { position: relative; margin: 0; }
+  .cols { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 0.85fr) minmax(0, 2fr); column-gap: clamp(3.5rem, 7vw, 7.5rem); }
+  .axis { color: var(--ink-3); font-size: var(--t-small); font-weight: 500; padding-bottom: 0.75rem; margin-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }
+  ul { list-style: none; padding: 0; display: grid; gap: 0.125rem; }
+  .col { display: flex; flex-direction: column; }
+  .col-src ul, .col-build ul { flex: 1; align-content: space-evenly; }
+
+  .node {
+    position: relative; display: flex; align-items: center; gap: 0.75rem; width: 100%;
+    font: 500 0.9688rem/1.3 var(--sans); color: var(--ink); text-align: left; text-decoration: none;
+    background: none; border: 0; padding: 0.5rem 0; cursor: pointer;
+    transition: color 200ms var(--ease-out), opacity 200ms var(--ease-out);
+  }
+  .pin { width: 0.5625rem; height: 0.5625rem; border-radius: 50%; background: var(--ink); flex: none; transition: background-color 200ms var(--ease-out), transform 200ms var(--ease-out); }
+  .src { justify-content: space-between; }
+  .src .label { text-align: right; flex: 1; }
+
+  .build { padding: 0; border: 1px solid var(--ink); background: var(--paper); justify-content: space-between; min-height: 2.75rem; }
+  .build .label { flex: 1; padding: 0.55rem 0.75rem; font-weight: 600; }
+  .build .pin { margin-inline: -0.29rem; }
+
+  .res { padding: 0.375rem 0; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 0.875rem; align-items: baseline; }
+  .res .pin { align-self: center; }
+  .res .label { font-weight: 500; }
+  .res .sector { color: var(--ink-3); font-size: var(--t-small); white-space: nowrap; }
+  .res .trail { display: none; }
+  .ends { margin-top: 1.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; }
+  .all { font-size: 0.9375rem; }
+
+  .edges { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 0; }
+  .edges :global(path) { fill: none; stroke: #aeaea5; stroke-width: 1.25; transition: stroke 200ms var(--ease-out), opacity 200ms var(--ease-out); }
+  .edges :global(path.on) { stroke: var(--palm); stroke-width: 2.25; }
+  .is-tracing .edges :global(path:not(.on)) { opacity: 0.8; }
+
+  .is-tracing .node:not(.on) { color: var(--ink-3); }
+  .is-tracing .node:not(.on) .pin { background: var(--edge); }
+  .node.on .pin { background: var(--palm); transform: scale(1.25); }
+    .src.on .label { color: var(--palm-deep); font-weight: 600; }
+  .build.on { border-color: var(--palm); background: var(--palm); color: #fff; }
+  .build.on .pin { background: var(--palm-deep); box-shadow: 0 0 0 2px var(--paper); }
+  .res.on .label { color: var(--ink); text-decoration: underline; text-decoration-color: var(--palm); text-decoration-thickness: 2px; text-underline-offset: 0.25em; }
+  .res:hover .label { color: var(--palm-deep); }
+  .node:focus-visible { outline-offset: 4px; }
+
+  @media (max-width: 56rem) {
+    .cols { grid-template-columns: 1fr; }
+    .col-src, .col-build, .edges { display: none; }
+    .res { grid-template-columns: auto minmax(0, 1fr); row-gap: 0.25rem; padding-block: 0.875rem; border-bottom: 1px solid var(--rule); }
+    .col-res ul { gap: 0; }
+    .res .pin { align-self: start; margin-top: 0.45rem; }
+    .axis { display: none; }
+    .res .trail { display: block; grid-column: 2; color: var(--ink-3); font-size: var(--t-micro); }
+    .res .sector { display: none; }
+    .is-tracing .node:not(.on) { color: var(--ink); }
+    .is-tracing .node:not(.on) .pin { background: var(--ink); }
+    .res.on .label { text-decoration: none; }
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import Arrow from '../components/Arrow.astro';
+import { BUILDS, SOURCES, getStudies, studyHref } from '../data/lineage';
+
+const studies = await getStudies();
+const byBuild = BUILDS.map((b) => ({ ...b, items: studies.filter((s) => s.data.build === b.id) }));
+---
+<Base
+  title="Case studies: Palmtree Infotech"
+  description={`${studies.length} shipped Palmtree projects in AI, data pipelines, analytics, commerce and campaigns, each traced from its data to its result.`}
+  current="case-studies"
+>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Case studies</h1>
+      <p class="lead">{studies.length} projects, each traced from the data it started with to what shipped. Client names are withheld; the work is real.</p>
+    </header>
+
+    <div class="filter" role="group" aria-label="Filter by what we built">
+      <button type="button" data-filter="all" aria-pressed="true">All <span class="mono">{studies.length}</span></button>
+      {byBuild.map((b) => (
+        <button type="button" data-filter={b.id} aria-pressed="false">{b.short} <span class="mono">{b.items.length}</span></button>
+      ))}
+    </div>
+
+    {byBuild.map((b) => (
+      <section class="group" data-group={b.id} aria-labelledby={`g-${b.id}`}>
+        <div class="group-head">
+          <h2 id={`g-${b.id}`}><span class="node-dot" aria-hidden="true"></span>{b.name}</h2>
+          <p>{b.text}</p>
+        </div>
+        <ul class="rows">
+          {b.items.map((s) => (
+            <li>
+              <a class="study" href={studyHref(s)}>
+                <span class="from">{s.data.sources.map((x) => SOURCES[x]).join(' + ')}</span>
+                <span class="result">
+                  <strong>{s.data.headline}</strong>
+                  <span class="title">{s.data.title} · {s.data.sector}</span>
+                </span>
+                <span class="tools mono">{s.data.tools.slice(0, 3).join(' · ')}{s.data.tools.length > 3 && ` +${s.data.tools.length - 3}`}</span>
+                <Arrow class="go" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<script>
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+  const groups = [...document.querySelectorAll<HTMLElement>('[data-group]')];
+  const valid = new Set(buttons.map((b) => b.dataset.filter));
+  const show = (id: string, push: boolean) => {
+    if (!valid.has(id)) id = 'all';
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === id)));
+    groups.forEach((g) => { g.hidden = id !== 'all' && g.dataset.group !== id; });
+    if (push) {
+      const url = new URL(location.href);
+      id === 'all' ? url.searchParams.delete('build') : url.searchParams.set('build', id);
+      history.replaceState(null, '', url);
+    }
+  };
+  buttons.forEach((b) => b.addEventListener('click', () => show(b.dataset.filter!, true)));
+  show(new URLSearchParams(location.search).get('build') ?? 'all', false);
+</script>
+
+<style>
+  .page-head { padding-block: clamp(3rem, 6vw, 5rem) 2.5rem; display: grid; gap: 1.25rem; }
+  .filter { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-bottom: 1rem; position: sticky; top: 4.5rem; z-index: 5; background: var(--paper); padding-top: 1rem; border-bottom: 1px solid var(--rule); }
+  .filter button {
+    font: 500 0.9375rem var(--sans); color: var(--ink); background: none; cursor: pointer;
+    border: 1px solid var(--edge); min-height: 2.75rem; padding: 0 1rem; display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: border-color 160ms var(--ease-out), background-color 160ms var(--ease-out), color 160ms var(--ease-out);
+  }
+  .filter button:hover { border-color: var(--ink); }
+  .filter button[aria-pressed='true'] { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .filter .mono { font-size: var(--t-micro); opacity: 0.75; }
+
+  .group { padding-top: clamp(3rem, 6vw, 4.5rem); }
+  .group-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 2rem; align-items: baseline; margin-bottom: 1.5rem; }
+  .group-head h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); display: flex; align-items: center; gap: 0.75rem; }
+  .group-head p { color: var(--ink-2); max-width: 52ch; }
+
+  .study {
+    display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 2fr) minmax(0, 1fr) 1.25rem; gap: 2rem; align-items: baseline;
+    padding-block: 1.25rem; text-decoration: none; color: var(--ink);
+  }
+  .from { color: var(--ink-3); font-size: var(--t-small); }
+  .result { display: grid; gap: 0.25rem; }
+  .result strong { font-weight: 600; font-size: 1.125rem; line-height: 1.35; }
+  .title { color: var(--ink-2); font-size: 0.9375rem; }
+  .tools { color: var(--ink-3); }
+  .go { width: 1.1rem; height: 1.1rem; color: var(--ink-3); transition: transform 240ms var(--ease-out), color 200ms var(--ease-out); }
+  .study:hover strong { color: var(--palm-deep); }
+  .study:hover .go { color: var(--palm); transform: translateX(3px); }
+
+  @media (max-width: 56rem) {
+    .group-head { grid-template-columns: 1fr; gap: 0.75rem; }
+    .study { grid-template-columns: minmax(0, 1fr) 1.25rem; gap: 0.5rem 1rem; }
+    .from { grid-column: 1; grid-row: 1; font-size: var(--t-micro); }
+    .result { grid-column: 1; grid-row: 2; }
+    .tools { display: none; }
+    .go { grid-column: 2; grid-row: 2; align-self: center; }
+  }
+</style>

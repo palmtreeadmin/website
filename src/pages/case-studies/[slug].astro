@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+import Arrow from '../../components/Arrow.astro';
+import { render } from 'astro:content';
+import { SOURCES, buildName, getStudies, studyHref, type Study } from '../../data/lineage';
+
+export async function getStaticPaths() {
+  const studies = await getStudies();
+  return studies.map((s, i) => ({ params: { slug: s.id }, props: { study: s, next: studies[(i + 1) % studies.length] } }));
+}
+const { study, next } = Astro.props as { study: Study; next: Study };
+const { Content } = await render(study);
+const d = study.data;
+---
+<Base title={`${d.title}: Palmtree case study`} description={d.summary} current="case-studies">
+  <article class="wrap">
+    <header class="head">
+      <a class="back" href="/case-studies"><Arrow class="back-arrow" /> All case studies</a>
+      <h1>{d.title}</h1>
+      <p class="lead">{d.summary}</p>
+    </header>
+
+    <ol class="trace" aria-label="How this project traces">
+      <li><span class="k">Started from</span><span class="v">{d.sources.map((s) => SOURCES[s]).join(' + ')}</span></li>
+      <li><span class="k">Palmtree built</span><span class="v"><a href={`/case-studies?build=${d.build}`}>{buildName(d.build)}</a></span></li>
+      <li class="end"><span class="k">Result</span><span class="v">{d.headline}</span></li>
+    </ol>
+
+    <div class="body">
+      <div class="prose"><Content /></div>
+      <aside aria-label="Project facts">
+        <dl>
+          <div><dt>Sector</dt><dd>{d.sector}</dd></div>
+          <div><dt>Tools</dt><dd><ul class="mono">{d.tools.map((t) => <li>{t}</li>)}</ul></dd></div>
+        </dl>
+      </aside>
+    </div>
+
+    <footer class="after">
+      <div class="cta">
+        <h2>Working on something like this?</h2>
+        <a class="btn" href="/#contact">Start a conversation <Arrow /></a>
+      </div>
+      <a class="next" href={studyHref(next)}>
+        <span class="v">Next: {next.data.title}</span>
+        <span class="h">{next.data.headline} <Arrow /></span>
+      </a>
+    </footer>
+  </article>
+</Base>
+
+<style>
+  .head { padding-block: clamp(2.5rem, 5vw, 4rem) 2.5rem; display: grid; gap: 1.25rem; max-width: 60rem; }
+  .back { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9375rem; text-decoration: none; color: var(--ink-2); justify-self: start; }
+  .back :global(.back-arrow) { width: 1em; height: 1em; transform: scaleX(-1); }
+  .back:hover { color: var(--palm-deep); text-decoration: underline; }
+
+  .trace { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr 1.6fr; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); }
+  .trace li { position: relative; display: grid; gap: 0.5rem; padding: 2.25rem 2rem 1.75rem 0; }
+  .trace li::before { content: ''; position: absolute; left: 0; top: 0.9rem; width: 0.625rem; height: 0.625rem; border-radius: 50%; background: var(--palm); }
+  .trace li::after { content: ''; position: absolute; left: 0.625rem; right: 0; top: calc(0.9rem + 4px); height: 2px; background: var(--palm); }
+  .trace li.end::after { display: none; }
+  .k { color: var(--ink-3); font-size: var(--t-small); font-weight: 500; }
+  .trace .v { font-weight: 600; font-size: 1.0625rem; line-height: 1.35; }
+  .trace .end .v { font-size: var(--t-h3); letter-spacing: -0.012em; }
+  .trace a { text-decoration-color: var(--edge); }
+
+  .body { display: grid; grid-template-columns: minmax(0, 68ch) minmax(14rem, 18rem); justify-content: space-between; gap: 4rem; padding-top: 3.5rem; }
+  .prose { font-size: 1.125rem; line-height: 1.65; }
+  .prose :global(h2) { font-size: 1.5rem; letter-spacing: -0.02em; margin: 3rem 0 1rem; }
+  .prose :global(h2:first-child) { margin-top: 0; }
+  .prose :global(p) { margin-bottom: 1rem; color: var(--ink); }
+  .prose :global(ul) { padding-left: 1.25rem; display: grid; gap: 0.6rem; }
+  .prose :global(li::marker) { color: var(--ink-3); }
+
+  aside { position: sticky; top: 6rem; align-self: start; }
+  aside dl { display: grid; gap: 1.5rem; }
+  aside dl div { border-top: 1px solid var(--ink); padding-top: 0.875rem; display: grid; gap: 0.5rem; }
+  aside dt { font-weight: 600; font-size: 0.9375rem; }
+  aside dd { color: var(--ink-2); }
+  aside ul { list-style: none; padding: 0; display: grid; gap: 0.35rem; }
+
+  .after { margin-top: var(--step-section); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; border-top: 1px solid var(--ink); padding-top: 3rem; }
+  .cta { display: grid; gap: 1.5rem; justify-items: start; align-content: start; }
+  .next { display: grid; gap: 0.5rem; text-decoration: none; padding-left: 2rem; border-left: 1px solid var(--rule); align-content: start; }
+  .next .v { font-size: var(--t-h3); font-weight: 600; letter-spacing: -0.012em; }
+  .next .h { display: inline-flex; gap: 0.5rem; align-items: center; color: var(--ink-2); }
+  .next .h :global(svg) { width: 1em; height: 1em; transition: transform 240ms var(--ease-out); }
+  .next:hover .v { color: var(--palm-deep); }
+  .next:hover .h :global(svg) { transform: translateX(3px); }
+
+  @media (max-width: 56rem) {
+    .trace { grid-template-columns: 1fr; }
+    .trace li { padding: 0 0 1.5rem 1.75rem; }
+    .trace li:first-child { padding-top: 1.5rem; }
+    .trace li::before { top: 0.2rem; }
+    .trace li:first-child::before { top: 1.7rem; }
+    .trace li::after { left: 0.25rem; right: auto; top: 0.6rem; bottom: -0.2rem; width: 2px; height: auto; }
+    .trace li:first-child::after { top: 2.1rem; }
+    .body { grid-template-columns: 1fr; gap: 3rem; }
+    aside { position: static; }
+    .after { grid-template-columns: 1fr; }
+    .next { padding: 2rem 0 0; border-left: 0; border-top: 1px solid var(--rule); }
+  }
+</style>

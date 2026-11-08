@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import Arrow from '../components/Arrow.astro';
+---
+<Base title="Page not found: Palmtree Infotech" description="This page doesn’t exist.">
+  <div class="wrap nf">
+    <h1>This line doesn’t lead anywhere.</h1>
+    <p class="lead">The page may have moved when we rebuilt the site. Try the case studies or the homepage.</p>
+    <div class="go"><a class="btn" href="/case-studies">Case studies <Arrow /></a><a class="btn btn--quiet" href="/">Homepage</a></div>
+  </div>
+</Base>
+<style>
+  .nf { padding-block: clamp(4rem, 12vw, 9rem) 0; display: grid; gap: 1.5rem; }
+  .go { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+</style>

@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T00:00:00Z",
+  "title": "Design System: Palmtree Infotech",
+  "extensions": {
+    "colorMeta": {
+      "palm": { "role": "primary", "displayName": "Palm Green", "canonical": "#0b6e4f", "tonalRamp": ["#032a1d", "#07563d", "#0b6e4f", "#2f8a6b", "#5fa98e", "#97c8b4", "#c6e0d4", "#e3eee8"] },
+      "palm-deep": { "role": "primary", "displayName": "Deep Palm", "canonical": "#07563d", "tonalRamp": ["#021a12", "#043322", "#07563d", "#1f6d53", "#4d8c75", "#86b3a1", "#bdd6cb", "#e6f0eb"] },
+      "palm-wash": { "role": "primary", "displayName": "Palm Wash", "canonical": "#e3eee8", "tonalRamp": ["#2a3a32", "#4b5f55", "#73897e", "#9fb3a8", "#c3d4cb", "#d6e5dd", "#e3eee8", "#f2f7f4"] },
+      "paper": { "role": "neutral", "displayName": "Sheet Paper", "canonical": "#fafaf8", "tonalRamp": ["#262624", "#4a4a46", "#76766f", "#a3a39b", "#c9c9c1", "#e4e4de", "#f1f1ec", "#fafaf8"] },
+      "paper-2": { "role": "neutral", "displayName": "Shaded Paper", "canonical": "#f1f1ec", "tonalRamp": ["#24241f", "#46463f", "#717168", "#9e9e94", "#c5c5bb", "#dfdfd7", "#f1f1ec", "#f9f9f6"] },
+      "field-white": { "role": "neutral", "displayName": "Field White", "canonical": "#ffffff", "tonalRamp": ["#262626", "#4a4a4a", "#777777", "#a3a3a3", "#c9c9c9", "#e4e4e4", "#f5f5f5", "#ffffff"] },
+      "ink": { "role": "neutral", "displayName": "Press Ink", "canonical": "#111111", "tonalRamp": ["#111111", "#2b2b29", "#4d4d47", "#6b6b64", "#8e8e86", "#b5b5ad", "#d9d9d2", "#f1f1ec"] },
+      "ink-2": { "role": "neutral", "displayName": "Graphite", "canonical": "#4d4d47", "tonalRamp": ["#1a1a18", "#33332f", "#4d4d47", "#6b6b64", "#8e8e86", "#b5b5ad", "#d9d9d2", "#f1f1ec"] },
+      "ink-3": { "role": "neutral", "displayName": "Pencil", "canonical": "#6b6b64", "tonalRamp": ["#1a1a18", "#33332f", "#4d4d47", "#6b6b64", "#8e8e86", "#b5b5ad", "#d9d9d2", "#f1f1ec"] },
+      "rule": { "role": "neutral", "displayName": "Hairline", "canonical": "#d9d9d2", "tonalRamp": ["#2b2b28", "#4d4d47", "#6b6b64", "#8e8e86", "#aeaea5", "#c2c2ba", "#d9d9d2", "#f1f1ec"] },
+      "edge": { "role": "neutral", "displayName": "Edge Grey", "canonical": "#c2c2ba", "tonalRamp": ["#2b2b28", "#4d4d47", "#6b6b64", "#8e8e86", "#aeaea5", "#c2c2ba", "#d9d9d2", "#f1f1ec"] },
+      "error": { "role": "tertiary", "displayName": "Signal Red", "canonical": "#b42318", "tonalRamp": ["#3d0b07", "#6e150e", "#b42318", "#d04a3f", "#e27b72", "#efaaa4", "#f7d3d0", "#fdeeed"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page h1. Homepage hero caps at 4rem and 22ch." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2." },
+      "title": { "displayName": "Title", "purpose": "Row titles, stack group names, trace result, platform statements." },
+      "lead": { "displayName": "Lead", "purpose": "One supporting paragraph under a heading, graphite, max 44rem." },
+      "body": { "displayName": "Body", "purpose": "Running text; case-study prose at 1.125rem/1.65 within 68ch." },
+      "label": { "displayName": "Label", "purpose": "Axis titles, field keys, sector tags. Sentence case, pencil grey." },
+      "mono": { "displayName": "Mono", "purpose": "Tool and stack names and numeric counts only." }
+    },
+    "shadows": [
+      { "name": "focus-halo", "value": "0 0 0 3px #e3eee8", "purpose": "Input focus halo with a palm stroke." },
+      { "name": "current-underline", "value": "inset 0 -2px 0 #111111", "purpose": "Current page marker in the nav." },
+      { "name": "pin-ring", "value": "0 0 0 2px #fafaf8", "purpose": "Separates an active build-node pin from its palm fill." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The only easing; all state transitions and the path draw." },
+      { "name": "state", "value": "160-200ms", "purpose": "Colour, stroke and opacity changes on hover and trace." },
+      { "name": "button", "value": "180ms", "purpose": "Button fill and stroke change." },
+      { "name": "nudge", "value": "240ms translateX(3px)", "purpose": "Trailing arrow on hover of buttons, arrow links and rows." },
+      { "name": "path-draw", "value": "900ms stroke-dashoffset", "purpose": "The single authored moment: the default lineage path draws on load. None under reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "narrow", "value": "30rem" },
+      { "name": "collapse", "value": "56rem" },
+      { "name": "hero", "value": "64rem" },
+      { "name": "rows", "value": "72rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The primary action: palm fill, square, trailing arrow that nudges on hover.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Start a conversation <svg class=\"ds-arrow\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><path d=\"M2 8h11M9 4l4 4-4 4\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.6em; font: 600 1rem/1 var(--sans, 'Schibsted Grotesk Variable', 'Helvetica Neue', Arial, sans-serif); letter-spacing: -0.005em; padding: 0.95rem 1.35rem; min-height: 2.875rem; border: 1px solid var(--palm, #0b6e4f); background: var(--palm, #0b6e4f); color: #fff; text-decoration: none; cursor: pointer; border-radius: 0; transition: background-color 180ms cubic-bezier(0.16,1,0.3,1), border-color 180ms cubic-bezier(0.16,1,0.3,1); } .ds-btn:hover { background: var(--palm-deep, #07563d); border-color: var(--palm-deep, #07563d); } .ds-btn:focus-visible { outline: 2px solid var(--palm, #0b6e4f); outline-offset: 3px; } .ds-arrow { width: 1em; height: 1em; transition: transform 240ms cubic-bezier(0.16,1,0.3,1); } .ds-btn:hover .ds-arrow { transform: translateX(3px); }"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Secondary action beside a primary: ink stroke, inverts to ink on hover.",
+      "html": "<a class=\"ds-btn-quiet\" href=\"#\">Talk about an India team</a>",
+      "css": ".ds-btn-quiet { display: inline-flex; align-items: center; gap: 0.6em; font: 600 1rem/1 var(--sans, 'Schibsted Grotesk Variable', Arial, sans-serif); padding: 0.95rem 1.35rem; min-height: 2.875rem; border: 1px solid var(--ink, #111); background: transparent; color: var(--ink, #111); text-decoration: none; border-radius: 0; transition: background-color 180ms cubic-bezier(0.16,1,0.3,1), color 180ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-quiet:hover { background: var(--ink, #111); color: #fff; } .ds-btn-quiet:focus-visible { outline: 2px solid var(--palm, #0b6e4f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Arrow Link",
+      "kind": "custom",
+      "refersTo": "link-arrow",
+      "description": "Tertiary in-text action with an underline border and trailing arrow.",
+      "html": "<a class=\"ds-link-arrow\" href=\"#\">All case studies <svg viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><path d=\"M2 8h11M9 4l4 4-4 4\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-link-arrow { display: inline-flex; align-items: center; gap: 0.45em; font-weight: 600; color: var(--ink, #111); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; } .ds-link-arrow svg { width: 0.95em; height: 0.95em; transition: transform 240ms cubic-bezier(0.16,1,0.3,1); } .ds-link-arrow:hover { color: var(--palm-deep, #07563d); } .ds-link-arrow:hover svg { transform: translateX(3px); } .ds-link-arrow:focus-visible { outline: 2px solid var(--palm, #0b6e4f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Labelled square field with a palm focus stroke and wash halo.",
+      "html": "<label class=\"ds-field\"><span>Work email</span><input type=\"email\" placeholder=\"\"></label>",
+      "css": ".ds-field { display: grid; gap: 0.5rem; } .ds-field span { font-weight: 600; font-size: 0.9375rem; color: var(--ink, #111); } .ds-field input { font: 400 1rem/1.5 var(--sans, 'Schibsted Grotesk Variable', Arial, sans-serif); color: var(--ink, #111); background: #fff; border: 1px solid var(--edge, #c2c2ba); border-radius: 0; padding: 0.75rem 0.875rem; min-height: 3rem; caret-color: var(--palm, #0b6e4f); transition: border-color 160ms cubic-bezier(0.16,1,0.3,1), box-shadow 160ms cubic-bezier(0.16,1,0.3,1); } .ds-field input:hover { border-color: var(--ink-3, #6b6b64); } .ds-field input:focus-visible { outline: none; border-color: var(--palm, #0b6e4f); box-shadow: 0 0 0 3px var(--palm-wash, #e3eee8); }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Case-study filter: edge stroke, mono count, pressed fills ink.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\" aria-pressed=\"true\">All <span>23</span></button><button class=\"ds-chip\" aria-pressed=\"false\">AI <span>4</span></button></div>",
+      "css": ".ds-chips { display: flex; gap: 0.5rem; } .ds-chip { font: 500 0.9375rem var(--sans, 'Schibsted Grotesk Variable', Arial, sans-serif); color: var(--ink, #111); background: none; border: 1px solid var(--edge, #c2c2ba); border-radius: 0; min-height: 2.75rem; padding: 0 1rem; display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; transition: border-color 160ms cubic-bezier(0.16,1,0.3,1), background-color 160ms cubic-bezier(0.16,1,0.3,1); } .ds-chip span { font-family: var(--mono, 'JetBrains Mono Variable', ui-monospace, monospace); font-size: 0.75rem; opacity: 0.75; font-variant-numeric: tabular-nums; } .ds-chip:hover { border-color: var(--ink, #111); } .ds-chip[aria-pressed='true'] { background: var(--ink, #111); border-color: var(--ink, #111); color: #fff; } .ds-chip:focus-visible { outline: 2px solid var(--palm, #0b6e4f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Wordmark left, text links, primary button right; current page has an ink underline.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-wordmark\" href=\"#\">Palmtree<span>.</span></a><ul><li><a href=\"#\">What we build</a></li><li><a href=\"#\" aria-current=\"page\">Case studies</a></li><li><a href=\"#\">Stack</a></li></ul></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; min-height: 4.5rem; gap: 2rem; padding-inline: 1.5rem; background: var(--paper, #fafaf8); border-bottom: 1px solid var(--rule, #d9d9d2); font-family: var(--sans, 'Schibsted Grotesk Variable', Arial, sans-serif); } .ds-wordmark { font-weight: 700; font-size: 1.5rem; letter-spacing: -0.035em; text-decoration: none; color: var(--ink, #111); } .ds-wordmark span { color: var(--palm, #0b6e4f); } .ds-nav ul { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; } .ds-nav ul a { color: var(--ink, #111); text-decoration: none; font-size: 0.9688rem; font-weight: 500; padding-block: 0.5rem; } .ds-nav ul a:hover { color: var(--palm-deep, #07563d); } .ds-nav ul a[aria-current='page'] { box-shadow: inset 0 -2px 0 var(--ink, #111); } .ds-nav a:focus-visible { outline: 2px solid var(--palm, #0b6e4f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Hairline Rows",
+      "kind": "card",
+      "refersTo": "rows",
+      "description": "The world's container in place of cards: ink rule above, hairlines between, whole-row links.",
+      "html": "<ul class=\"ds-rows\"><li><a href=\"#\"><strong><i></i>AI, LLMs and agents</strong><span>Agents, MCP and LLM pipelines on your data.</span><code>Claude · Vertex AI</code></a></li><li><a href=\"#\"><strong><i></i>Data pipelines and platforms</strong><span>Batch and streaming pipelines on GCP, AWS, Azure.</span><code>Spark · Airflow</code></a></li></ul>",
+      "css": ".ds-rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink, #111); font-family: var(--sans, 'Schibsted Grotesk Variable', Arial, sans-serif); } .ds-rows li { border-bottom: 1px solid var(--rule, #d9d9d2); } .ds-rows a { display: grid; grid-template-columns: 1.1fr 1.5fr 1fr; gap: 2rem; align-items: baseline; padding-block: 1.75rem; color: var(--ink, #111); text-decoration: none; } .ds-rows strong { display: flex; align-items: center; gap: 0.75rem; font-weight: 600; font-size: 1.3125rem; letter-spacing: -0.012em; } .ds-rows i { width: 0.625rem; height: 0.625rem; border-radius: 50%; background: var(--ink, #111); flex: none; } .ds-rows span { color: var(--ink-2, #4d4d47); } .ds-rows code { font-family: var(--mono, 'JetBrains Mono Variable', ui-monospace, monospace); font-size: 0.8125rem; color: var(--ink-3, #6b6b64); } .ds-rows a:hover strong { color: var(--palm-deep, #07563d); } .ds-rows a:hover i { background: var(--palm, #0b6e4f); } .ds-rows a:focus-visible { outline: 2px solid var(--palm, #0b6e4f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Trace",
+      "kind": "custom",
+      "refersTo": "trace",
+      "description": "Palm nodes joined by a 2px palm line: started from, built, result.",
+      "html": "<ol class=\"ds-trace\"><li><span>Started from</span><b>Documents and PDFs</b></li><li><span>Palmtree built</span><b>AI, LLMs and agents</b></li><li class=\"end\"><span>Result</span><b>Portuguese PDFs to structured JSON</b></li></ol>",
+      "css": ".ds-trace { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr 1.6fr; border-top: 1px solid var(--ink, #111); border-bottom: 1px solid var(--rule, #d9d9d2); font-family: var(--sans, 'Schibsted Grotesk Variable', Arial, sans-serif); } .ds-trace li { position: relative; display: grid; gap: 0.5rem; padding: 2.25rem 2rem 1.75rem 0; } .ds-trace li::before { content: ''; position: absolute; left: 0; top: 0.9rem; width: 0.625rem; height: 0.625rem; border-radius: 50%; background: var(--palm, #0b6e4f); } .ds-trace li::after { content: ''; position: absolute; left: 0.625rem; right: 0; top: calc(0.9rem + 4px); height: 2px; background: var(--palm, #0b6e4f); } .ds-trace li.end::after { display: none; } .ds-trace span { color: var(--ink-3, #6b6b64); font-size: 0.875rem; font-weight: 500; } .ds-trace b { font-weight: 600; font-size: 1.0625rem; line-height: 1.35; color: var(--ink, #111); } .ds-trace .end b { font-size: 1.3125rem; letter-spacing: -0.012em; }"
+    },
+    {
+      "name": "Lineage Build Node",
+      "kind": "custom",
+      "refersTo": "lineage-build-node",
+      "description": "Square ink-stroked build box with edge pins; fills palm when on the traced path.",
+      "html": "<div class=\"ds-lin\"><a class=\"ds-node on\" href=\"#\"><i></i><span>AI, LLMs and agents</span><i></i></a><a class=\"ds-node\" href=\"#\"><i></i><span>Analytics and dashboards</span><i></i></a></div>",
+      "css": ".ds-lin { display: grid; gap: 1rem; max-width: 16rem; padding: 0.5rem; font-family: var(--sans, 'Schibsted Grotesk Variable', Arial, sans-serif); } .ds-node { display: flex; align-items: center; justify-content: space-between; min-height: 2.75rem; border: 1px solid var(--ink, #111); background: var(--paper, #fafaf8); color: var(--ink, #111); text-decoration: none; transition: background-color 200ms cubic-bezier(0.16,1,0.3,1), color 200ms cubic-bezier(0.16,1,0.3,1); } .ds-node span { flex: 1; padding: 0.55rem 0.75rem; font: 600 0.9688rem/1.3 inherit; } .ds-node i { width: 0.5625rem; height: 0.5625rem; border-radius: 50%; background: var(--ink, #111); margin-inline: -0.29rem; flex: none; } .ds-node.on, .ds-node:hover { border-color: var(--palm, #0b6e4f); background: var(--palm, #0b6e4f); color: #fff; } .ds-node.on i, .ds-node:hover i { background: var(--palm-deep, #07563d); box-shadow: 0 0 0 2px var(--paper, #fafaf8); transform: scale(1.25); } .ds-node:focus-visible { outline: 2px solid var(--palm, #0b6e4f); outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lineage Sheet",
+    "overview": "The site reads like an engineer's lineage diagram printed on near-white paper: the visitor's kind of data on one side, what Palmtree builds in the middle, a shipped result on the other, joined by thin lines. Everything is drawn in ink on paper; one palm green marks the path being traced, the action to take, and where keyboard focus sits. Hierarchy comes from line weight and position, not from boxes, fills or shadows.\n\nDensity is that of a well-set report: generous section steps between content, tight hairline rows within a section, left-aligned type on a wide 90rem sheet. Content groups are hairline rows (an ink rule on top, light rules between), and the recurring mark is a small round node joined by a straight or curved line. The one authored motion is a traced path drawing itself in; everything else is a short colour or 3px nudge on hover.\n\nThe scene is light only, by decision. There are no cards, no eyebrows or kickers, no icon tiles and no decorative imagery.",
+    "keyCharacteristics": [
+      "Ink on near-white paper, one palm green with a reserved job.",
+      "Hairline rows and nodes as the only containers; square corners everywhere except the round node.",
+      "Schibsted Grotesk for every word; JetBrains Mono only for tool and stack names and numeric counts.",
+      "Flat: depth is line weight, never shadow.",
+      "Light scene only."
+    ],
+    "rules": [
+      { "name": "The Reserved Green Rule", "body": "Palm green does four jobs only: the traced path, the primary action, focus and selection (deep palm carries their hover). Current-nav underlines, bullets and resting nodes are ink. If green appears anywhere else, it is a defect.", "section": "colors" },
+      { "name": "The Ink Above, Hairline Between Rule", "body": "A group of rows opens with a 1px ink rule and separates its rows with 1px hairline (rule) lines. The weight change is the hierarchy.", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Every heading, label, button and paragraph is Schibsted Grotesk. Mono is a data annotation (a tool name or a count), never a label, heading or tag style.", "section": "typography" },
+      { "name": "The Sentence-Case Label Rule", "body": "Labels are Schibsted Grotesk, sentence case, pencil grey, sitting above or beside the thing they name. They are never uppercase, tracked, or placed as a kicker over a heading.", "section": "typography" },
+      { "name": "The Line-Weight Rule", "body": "Never lift something to make it important; give it a heavier line or a better position. The only box-shadows in the build are functional: the 3px palm-wash input focus halo, the 2px inset ink current-nav underline, and a 2px paper ring separating an active build-node pin from its green fill.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep palm green to the traced path, the primary action, focus and selection; use ink for current-nav markers, bullets and resting nodes.",
+      "Do group content as hairline rows: 1px ink rule on top, 1px hairline (rule) between.",
+      "Do mark things with round nodes joined by lines, and keep every other corner square.",
+      "Do set labels in Schibsted Grotesk 500, 0.875rem, sentence case, pencil grey.",
+      "Do reserve JetBrains Mono for tool and stack names and numeric counts.",
+      "Do give interactive targets at least a 2.75rem height and keep the 2px palm focus outline visible.",
+      "Do limit motion to colour shifts (160–200ms), the 3px arrow nudge (240ms) and the single path draw, all on cubic-bezier(0.16, 1, 0.3, 1), and drop the draw under reduced motion."
+    ],
+    "donts": [
+      "Don't use cards, tiles or boxed panels to group content.",
+      "Don't put eyebrows or kickers above headings, and don't uppercase or track labels.",
+      "Don't add drop shadows or lifted surfaces; express importance with line weight and position.",
+      "Don't fill surfaces, badges or current-state markers with palm green.",
+      "Don't use mono for labels, headings or tags.",
+      "Don't add a dark theme; the scene is light only by decision.",
+      "Don't round button, input or chip corners."
+    ]
+  }
+}
