@@ -61,7 +61,9 @@ const diagram = DIAGRAMS[study.id];
 </Base>
 
 <style>
-  .head { padding-block: clamp(2.5rem, 5vw, 4rem) 2.5rem; display: grid; gap: 1.25rem; max-width: 60rem; }
+  .head { padding-block: clamp(2.5rem, 5vw, 4rem) 2.5rem; display: grid; gap: 1.25rem; }
+  /* Case-study titles run long; size them to sit on one line at laptop widths and up. */
+  .head h1 { font-size: clamp(2.25rem, 1rem + 2.6vw, 3.5rem); letter-spacing: -0.03em; }
   .back { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9375rem; text-decoration: none; color: var(--ink-2); justify-self: start; }
   .back :global(.back-arrow) { width: 1em; height: 1em; transform: scaleX(-1); }
   .back:hover { color: var(--palm-deep); text-decoration: underline; }
