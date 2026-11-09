@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+import type { Diagram } from '../data/diagrams';
+
+interface Props { diagram: Diagram }
+const { src, alt } = Astro.props.diagram;
+---
+<figure class="diagram">
+  <a href={src.src} class="frame" aria-label="Open the full-size diagram">
+    <Image src={src} alt={alt} widths={[640, 960, src.width]} sizes={`(min-width: 90rem) ${Math.min(src.width, 1280)}px, 100vw`} style={`max-width:${src.width}px`} />
+  </a>
+  <figcaption>Select the diagram to open it full size.</figcaption>
+</figure>
+
+<style>
+  .diagram { margin: 0; display: grid; gap: 0.75rem; }
+  .frame { display: block; background: #fff; border: 1px solid var(--rule); border-top-color: var(--ink); padding: clamp(0.75rem, 2vw, 1.5rem); }
+  .frame img { width: 100%; height: auto; margin-inline: auto; }
+  .frame:hover { border-color: var(--edge); border-top-color: var(--ink); }
+  figcaption { font-size: var(--t-small); color: var(--ink-3); }
+</style>

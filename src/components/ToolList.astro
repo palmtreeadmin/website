@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import { toolLogo } from '../data/tools';
+
+interface Props { tools: string[] }
+const { tools } = Astro.props;
+---
+<ul class="tools">
+  {tools.map((t) => {
+    const logo = toolLogo(t);
+    return (
+      <li>
+        <span class="tile" aria-hidden="true">
+          {logo ? <Image src={logo} alt="" height={64} densities={[1, 2]} /> : <span class="pin"></span>}
+        </span>
+        <span class="name">{t}</span>
+      </li>
+    );
+  })}
+</ul>
+
+<style>
+  .tools { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+  li { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); align-items: center; gap: 0.875rem; }
+  /* Old logos come with mixed white and transparent backgrounds; a white tile evens them out. */
+  .tile { width: 5.5rem; height: 2.75rem; display: grid; place-items: center; background: #fff; border: 1px solid var(--rule); padding: 0.375rem; overflow: hidden; }
+  .tile img { max-width: 100%; max-height: 100%; width: auto; height: auto; min-height: 0; object-fit: contain; }
+  .pin { width: 0.4375rem; height: 0.4375rem; border-radius: 50%; border: 1.5px solid var(--ink-3); }
+  .name { font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-2); line-height: 1.35; }
+</style>
