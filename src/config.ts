@@ -1,6 +1,6 @@
 // Fill these in before deploying.
-export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
-export const GA4_ID = ''; // e.g. 'G-XXXXXXXXXX'; empty loads no analytics
+export const FORM_ENDPOINT = 'https://formsubmit.co/ajax/rajesh@palmtreeinfotech.com';
+export const GA4_ID = 'G-JEFN2WDD8X'; // e.g. 'G-XXXXXXXXXX'; empty loads no analytics
 export const DRIFT_ID = 'w2x3dkxyacnw'; // empty removes the chat widget
 
 export const CONTACT = {

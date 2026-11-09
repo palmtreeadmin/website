@@ -51,7 +51,7 @@ Constraints and known defects to resolve:
 - `google-cloud.html` is lorem ipsum plus copy that names Cloudreach. It must not ship as is: drop it or rewrite it from real facts.
 - `case-studies/manufacturing-unit-consolidated-dashboard.html` and `manufacturing-units-consolidated-dashboard.html` are near-duplicates: merge them and keep a redirect.
 - Existing URLs (`/case-studies/*.html`, `/case-studies`) should keep resolving.
-- The contact form's endpoint is unknown: the current `action="blob:"` is broken, and its error handling expects Formspree responses. **Open decision:** the form backend, and whether reCAPTCHA stays.
+- The contact form posts to FormSubmit (`https://formsubmit.co/ajax/rajesh@palmtreeinfotech.com`), confirmed by the user. reCAPTCHA is dropped; FormSubmit's `_honey` field handles spam.
 - Analytics: the current tag is retired Universal Analytics (`UA-143783384-1`). **Open decision:** use GA4 (ID needed), something else, or nothing.
 
 ## Brand Commitments

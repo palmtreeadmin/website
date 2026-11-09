@@ -1,6 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Arrow from '../../components/Arrow.astro';
+import ToolList from '../../components/ToolList.astro';
+import Diagram from '../../components/Diagram.astro';
+import { DIAGRAMS } from '../../data/diagrams';
 import { render } from 'astro:content';
 import { SOURCES, buildName, getStudies, studyHref, type Study } from '../../data/lineage';
 
@@ -11,6 +14,7 @@ export async function getStaticPaths() {
 const { study, next } = Astro.props as { study: Study; next: Study };
 const { Content } = await render(study);
 const d = study.data;
+const diagram = DIAGRAMS[study.id];
 ---
 <Base title={`${d.title}: Palmtree case study`} description={d.summary} current="case-studies">
   <article class="wrap">
@@ -31,10 +35,17 @@ const d = study.data;
       <aside aria-label="Project facts">
         <dl>
           <div><dt>Sector</dt><dd>{d.sector}</dd></div>
-          <div><dt>Tools</dt><dd><ul class="mono">{d.tools.map((t) => <li>{t}</li>)}</ul></dd></div>
+          <div><dt>Tools</dt><dd><ToolList tools={d.tools} /></dd></div>
         </dl>
       </aside>
     </div>
+
+    {diagram && (
+      <section class="arch" aria-labelledby="arch-h">
+        <h2 id="arch-h">How it fits together</h2>
+        <Diagram diagram={diagram} />
+      </section>
+    )}
 
     <footer class="after">
       <div class="cta">
@@ -78,7 +89,9 @@ const d = study.data;
   aside dl div { border-top: 1px solid var(--ink); padding-top: 0.875rem; display: grid; gap: 0.5rem; }
   aside dt { font-weight: 600; font-size: 0.9375rem; }
   aside dd { color: var(--ink-2); }
-  aside ul { list-style: none; padding: 0; display: grid; gap: 0.35rem; }
+
+  .arch { margin-top: var(--step-section); display: grid; gap: 1.5rem; }
+  .arch h2 { font-size: 1.5rem; letter-spacing: -0.02em; }
 
   .after { margin-top: var(--step-section); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; border-top: 1px solid var(--ink); padding-top: 3rem; }
   .cta { display: grid; gap: 1.5rem; justify-items: start; align-content: start; }

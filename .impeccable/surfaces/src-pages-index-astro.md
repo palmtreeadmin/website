@@ -9,7 +9,7 @@ related_targets: ["src/pages/case-studies.astro","src/pages/case-studies/[slug].
 
 Mode: Persuade (homepage). Case-study pages, stack and Salesforce DevOps are Read surfaces in the same world.
 
-Audience: data/AI leaders at retail, CPG and manufacturing firms; founders needing product engineering or an India team. Job: judge relevance from shipped work, then make contact. Action: the contact form (Formspree), email or phone. Proof: 23 case studies. Brief constraints: minimal, professional, not playful; no AI gloss.
+Audience: data/AI leaders at retail, CPG and manufacturing firms; founders needing product engineering or an India team. Job: judge relevance from shipped work, then make contact. Action: the contact form (FormSubmit), email or phone. Proof: 23 case studies. Brief constraints: minimal, professional, not playful; no AI gloss.
 
 ## Direction contract
 
@@ -27,7 +27,6 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 ## Unresolved
 
-- Formspree form ID (placeholder in src/config.ts).
 - GA4 ID, or no analytics.
 - Whether the Drift chat stays (kept behind a config flag).
 - The India team section's copy needs owner review.

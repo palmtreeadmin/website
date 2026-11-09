@@ -1,8 +1,10 @@
 ---
-import { FORMSPREE_ENDPOINT, CONTACT } from '../config';
+import { FORM_ENDPOINT, CONTACT } from '../config';
 import Arrow from './Arrow.astro';
 ---
-<form class="contact-form" action={FORMSPREE_ENDPOINT} method="POST" novalidate data-contact data-email={CONTACT.email}>
+<form class="contact-form" action={FORM_ENDPOINT} method="POST" novalidate data-contact data-email={CONTACT.email}>
+  <input type="hidden" name="_subject" value="New enquiry from palmtreeinfotech.com" />
+  <input type="hidden" name="_template" value="table" />
   <div class="field">
     <label for="cf-name">Name</label>
     <input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-err" />
@@ -23,7 +25,7 @@ import Arrow from './Arrow.astro';
     <p class="hint" id="cf-message-hint">The data you have, the result you need, and any deadline.</p>
     <p class="err" id="cf-message-err" hidden>Tell us a little about the project.</p>
   </div>
-  <input class="trap" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <input class="trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
   <div class="actions">
     <button class="btn" type="submit">Send message <Arrow /></button>
     <p class="status" role="status" aria-live="polite"></p>
@@ -55,7 +57,6 @@ import Arrow from './Arrow.astro';
       e.preventDefault();
       const bad = fields.filter((f) => !check(f));
       if (bad.length) { bad[0].focus(); status.textContent = ''; return; }
-      if (form.action.includes('YOUR_FORM_ID')) { fail('The contact form isn’t connected yet.'); return; }
 
       button.disabled = true;
       button.textContent = 'Sending…';
@@ -63,11 +64,10 @@ import Arrow from './Arrow.astro';
       status.textContent = '';
       try {
         const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-        if (!res.ok) {
-          let detail = '';
-          try { detail = (await res.json())?.errors?.map((x: { message: string }) => x.message).join(' ') ?? ''; } catch {}
-          throw new Error(detail);
-        }
+        // FormSubmit can answer 200 with success "false", so read the body either way.
+        let body: { success?: string | boolean; message?: string } = {};
+        try { body = await res.json(); } catch {}
+        if (!res.ok || String(body.success) !== 'true') throw new Error(body.message ?? '');
         form.reset();
         fields.forEach((f) => f.removeAttribute('aria-invalid'));
         status.dataset.state = 'ok';
