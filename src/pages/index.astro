@@ -17,6 +17,14 @@ const buildRows = BUILDS.map((b) => {
   return { ...b, count: of.length, tools };
 });
 
+// Services without case studies yet; they sit in the same list and link to their detail.
+const serviceRows = [
+  { name: 'Salesforce DevOps', text: 'Release pipelines for Salesforce teams, on the DevOps tool you already use.', tools: ['Flosum', 'AutoRABIT', 'Copado', 'Gearset'], href: '/salesforce-devops', link: 'Details' },
+  { name: 'Cloud cost optimisation', text: 'Lower cloud bills for Kubernetes workloads with Spot.', tools: ['Spot', 'Kubernetes'], href: '/stack#cost-optimisation', link: 'Details' },
+  { name: 'Enterprise integration', text: 'Connecting enterprise systems, and API transformation.', tools: [], href: '/stack#data-and-ai', link: 'Details' },
+  { name: 'IoT solutions', text: 'Connected-device solutions for developers and enterprises.', tools: [], href: '#contact', link: 'Talk to us' },
+];
+
 const steps = [
   { name: 'Scope the work', text: 'We start from your data, your systems and the result you need, and agree what ships first.' },
   { name: 'Build with a Palmtree team', text: 'Senior Palmtree engineers in Chennai deliver the first releases inside your tools and process.' },
@@ -39,7 +47,7 @@ const steps = [
   <section id="build" class="section wrap" aria-labelledby="build-title">
     <div class="section-head">
       <h2 id="build-title">What we build</h2>
-      <p class="lead">Five kinds of work, one senior team. Every line below leads to projects we have shipped.</p>
+      <p class="lead">Nine kinds of work, one senior team. Each line leads to the projects we have shipped or to the service in detail.</p>
     </div>
     <ul class="rows builds">
       {buildRows.map((b) => (
@@ -52,18 +60,20 @@ const steps = [
           </a>
         </li>
       ))}
+      {serviceRows.map((r) => (
+        <li>
+          <a class="build-row" href={r.href}>
+            <h3><span class="node-dot" aria-hidden="true"></span>{r.name}</h3>
+            <p>{r.text}</p>
+            <p class="tools mono">{r.tools.join(' · ')}</p>
+            <span class="count">{r.link}<Arrow /></span>
+          </a>
+        </li>
+      ))}
     </ul>
-    <div class="also">
-      <p>We also deliver</p>
-      <ul>
-        <li><a href="/salesforce-devops">Salesforce DevOps</a> with Flosum, AutoRABIT, Copado and Gearset</li>
-        <li><a href="/stack#cost-optimisation">Cloud cost optimisation</a> for Kubernetes workloads with Spot</li>
-        <li><a href="/stack#data-and-ai">Enterprise integration</a> and API transformation</li>
-        <li><a href="#contact">IoT solutions</a> for developers and enterprises</li>
-      </ul>
-    </div>
   </section>
 
+  {/* India section hidden while it is being reworked.
   <section id="india" class="section india" aria-labelledby="india-title">
     <div class="wrap">
       <div class="section-head">
@@ -82,6 +92,7 @@ const steps = [
       <a class="btn btn--quiet" href="#contact">Talk about an India team <Arrow /></a>
     </div>
   </section>
+  */}
 
   <section class="section wrap platforms" aria-labelledby="platforms-title">
     <h2 id="platforms-title" class="visually-hidden">Platforms</h2>
@@ -111,22 +122,19 @@ const steps = [
   @media (max-width: 64rem) { .hero-copy { grid-template-columns: 1fr; } .hero .lead { font-size: var(--t-lead); } }
 
   .build-row {
-    display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.5fr) minmax(0, 1.1fr) auto;
+    display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.5fr) minmax(0, 1.1fr) 8.5rem;
     gap: 2rem; align-items: baseline; padding-block: 1.75rem; text-decoration: none; color: var(--ink);
     transition: background-color 200ms var(--ease-out);
   }
   .build-row h3 { display: flex; align-items: center; gap: 0.75rem; }
   .build-row p { color: var(--ink-2); max-width: 46ch; }
   .build-row .tools { color: var(--ink-3); }
-  .build-row .count { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9375rem; white-space: nowrap; }
+  .build-row .count { justify-self: end; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9375rem; white-space: nowrap; }
   .build-row .count :global(svg) { width: 0.95em; height: 0.95em; transition: transform 240ms var(--ease-out); }
   .build-row:hover h3 { color: var(--palm-deep); }
   .build-row:hover .node-dot { background: var(--palm); }
   .build-row:hover .count :global(svg) { transform: translateX(3px); }
 
-  .also { margin-top: 2.5rem; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 3.7fr); gap: 2rem; color: var(--ink-2); }
-  .also > p { font-weight: 600; color: var(--ink); }
-  .also ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem 2rem; }
 
   .india { margin-top: var(--step-section); padding-bottom: var(--step-section); background: var(--paper-2); border-block: 1px solid var(--rule); }
   .path { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin-bottom: 3rem; position: relative; }
@@ -149,13 +157,13 @@ const steps = [
   dd span { color: var(--ink-3); font-size: var(--t-small); }
 
   @media (max-width: 72rem) {
-    .build-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) auto; }
+    .build-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) 8.5rem; }
     .build-row .tools { grid-column: 2; grid-row: 2; }
   }
   @media (max-width: 56rem) {
     .build-row { grid-template-columns: 1fr; gap: 0.625rem; padding-block: 1.5rem; }
     .build-row .tools { grid-column: auto; grid-row: auto; }
-    .also, .also ul { grid-template-columns: 1fr; gap: 0.75rem; }
+    .build-row .count { justify-self: start; }
     .path { grid-template-columns: 1fr; gap: 0; }
     .path li { padding: 0 0 2rem 2rem; }
     .path li::before { top: 0.75rem; bottom: 0; left: 0.3rem; right: auto; width: 2px; height: auto; }
