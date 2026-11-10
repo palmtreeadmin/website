@@ -1,7 +1,7 @@
 ---
 title: "Beacon: Supermarket"
 summary: "A supermarket in the city needed to better oversee and impact their customers visits. While 70% of purchasing decisions are made in-store."
-sector: "Retail"
+sector: "Retail & E-commerce"
 build: commerce
 sources: [location]
 headline: "42% of shoppers who saw a targeted message bought the product"

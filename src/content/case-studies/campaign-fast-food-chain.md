@@ -1,7 +1,7 @@
 ---
 title: "Campaign: Fast Food Chain"
 summary: "A major US Fast food chain wanted to adapt from traditional TV based advertising and display advertising."
-sector: "Quick-service restaurants"
+sector: "Food & Beverage"
 build: campaigns
 sources: [location]
 headline: "An in-ad store locator that turned views into store visits"

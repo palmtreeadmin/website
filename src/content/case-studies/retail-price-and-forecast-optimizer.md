@@ -1,7 +1,7 @@
 ---
 title: "Retail: Price & Forecast Optimizer"
 summary: "Retailers find ways to optimize the price and forecast predictions."
-sector: "Retail"
+sector: "Retail & E-commerce"
 build: ai
 sources: [pos]
 headline: "Prices set on elasticity and cannibalisation, not cost-plus"

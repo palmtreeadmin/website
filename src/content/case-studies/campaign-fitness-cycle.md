@@ -1,7 +1,7 @@
 ---
 title: "Campaign: Fitness Cycle"
 summary: "To set up multi device campaigns targeting fitness enthusiasts and selling them fitness static cycles and also a subscription for the fitness."
-sector: "Fitness"
+sector: "Sports & Fitness"
 build: campaigns
 sources: [ads]
 headline: "A 17:1 CPA held through the campaign"

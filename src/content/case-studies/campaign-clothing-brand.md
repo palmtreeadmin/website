@@ -1,7 +1,7 @@
 ---
 title: "Campaign: Clothing Brand"
 summary: "A major California based clothing brand needed an effective way of sourcing new clients."
-sector: "Apparel"
+sector: "Retail & E-commerce"
 build: campaigns
 sources: [ads]
 headline: "Retargeting at a 15:1 or better CPA"

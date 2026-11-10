@@ -1,7 +1,7 @@
 ---
 title: "Retail Data Pipeline"
 summary: "E-commerce buyer activities on various retailers are captured. Products from various brands need an in-depth analysis."
-sector: "Retail"
+sector: "Retail & E-commerce"
 build: pipelines
 sources: [ecom]
 headline: "Cart logs to Snowflake through Spark, orchestrated by Airflow"

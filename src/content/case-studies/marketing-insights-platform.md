@@ -1,7 +1,7 @@
 ---
 title: "Marketing Insights Platform"
 summary: "Campaign, viewability and audience data sat in separate sources, with no central platform where data scientists could analyse performance and segments."
-sector: "Marketing"
+sector: "Marketing & Advertising"
 build: analytics
 sources: [ads]
 headline: "Campaign, viewability and audience data in one BigQuery model"

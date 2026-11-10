@@ -1,7 +1,7 @@
 ---
 title: "Revenue Dashboard: Data Aggregation"
 summary: "Revenue, impression and click data from many sell-side platforms never matched the client’s own records, and the discrepancies were affecting billing."
-sector: "Ad tech"
+sector: "Marketing & Advertising"
 build: analytics
 sources: [ads]
 headline: "Revenue from a dozen SSPs in one next-day view"

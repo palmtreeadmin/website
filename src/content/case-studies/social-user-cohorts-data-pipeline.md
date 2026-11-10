@@ -1,7 +1,7 @@
 ---
 title: "Social User Cohorts Data Pipeline"
 summary: "Large social news aggregation and discussion website needed to find user retention details."
-sector: "Media"
+sector: "Publishing & Media"
 build: pipelines
 sources: [social]
 headline: "Streaming cohort retention on Dataflow and BigQuery"

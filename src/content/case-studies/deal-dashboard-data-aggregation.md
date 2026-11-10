@@ -1,7 +1,7 @@
 ---
 title: "Deal Dashboard: Data Aggregation"
 summary: "Private-marketplace deal data from several sell-side platforms couldn’t be checked against the client’s records or tied to goals in Salesforce, so deals couldn’t be paced or tracked."
-sector: "Ad tech"
+sector: "Marketing & Advertising"
 build: analytics
 sources: [ads, crm]
 headline: "Private-marketplace deals matched to Salesforce in one view"

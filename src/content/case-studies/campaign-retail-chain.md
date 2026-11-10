@@ -1,7 +1,7 @@
 ---
 title: "Campaign: Retail Chain"
 summary: "A famous retail chain wanted an efficient way to target on-the-go consumers with mobile technology. The main target was to increase the footfalls."
-sector: "Retail"
+sector: "Retail & E-commerce"
 build: campaigns
 sources: [location]
 headline: "CTR raised from 0.57% to 1.85%"

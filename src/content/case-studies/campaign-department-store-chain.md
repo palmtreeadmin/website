@@ -1,7 +1,7 @@
 ---
 title: "Campaign: Department Store Chain"
 summary: "To create awareness about the Prom Fashion events held at different locations of the departmental store."
-sector: "Retail"
+sector: "Retail & E-commerce"
 build: campaigns
 sources: [location]
 headline: "3.21% of reached shoppers saved the event to their calendar"

@@ -1,7 +1,7 @@
 ---
 title: "MCP Agents using UDF"
-summary: "An internal experiment in how easily MCP agents can pull data from external APIs through user-defined functions."
-sector: "Internal R&D"
+summary: "Proof of Concept for pulling tourism specific data using MCP agents."
+sector: "Artificial Intelligence"
 build: ai
 sources: [apis]
 headline: "MCP agents querying live stock, country and tourism APIs"
@@ -17,7 +17,7 @@ tools:
 ---
 ## Problem
 
-We wanted to explore how easy it is to pull data from external APIs using MCP agents. The goal was to test different user defined functions (UDFs) and see how well they work when combined with APIs like stock data, country info, and tourism statistics.
+A proof-of-concept exploration demonstrating how MCP agents can retrieve data from external APIs through user-defined functions (UDFs), using live stock, country, and tourism data sources for a Tour Operator
 
 This exploration helps us prepare for future use cases where data from external APIs will be needed on-demand by analysts and dashboards, without heavy engineering dependencies.
 

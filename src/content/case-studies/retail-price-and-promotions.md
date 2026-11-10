@@ -1,7 +1,7 @@
 ---
 title: "Retail: Price & Promotions"
 summary: "A retailer’s promotions mostly reached shoppers who had already decided to buy. It needed prices and promotions that would actually change buying behaviour."
-sector: "Retail"
+sector: "Retail & E-commerce"
 build: analytics
 sources: [pos]
 headline: "A multi-year plan up the price and promotion maturity curve"

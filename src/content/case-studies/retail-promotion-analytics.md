@@ -1,7 +1,7 @@
 ---
 title: "Retail: Promotion Analytics"
 summary: "Retailers rely heavily on promotions and offers to generate higher returns."
-sector: "Retail"
+sector: "Retail & E-commerce"
 build: analytics
 sources: [pos]
 headline: "Finds the long tail of margin-diluting promotions"

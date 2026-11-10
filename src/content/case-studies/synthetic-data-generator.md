@@ -1,7 +1,7 @@
 ---
 title: "Synthetic Data Generator"
 summary: "To generate a large volume of synthetic data which can be used for training vertical specific machine learning models."
-sector: "AI & ML"
+sector: "Artificial Intelligence"
 build: ai
 sources: [db]
 headline: "Synthetic training data for healthcare, ad-tech and Salesforce types"

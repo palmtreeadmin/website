@@ -1,7 +1,7 @@
 ---
 title: "Shopify Migration to Dukaan"
 summary: "A leather shoe store owner migrated from Shopify to Dukaan for a simpler, cost-effective solution, ensuring a seamless transition without data loss."
-sector: "Footwear"
+sector: "Retail & E-commerce"
 build: commerce
 sources: [ecom]
 headline: "Shopify to Dukaan with no data loss"

@@ -1,7 +1,7 @@
 ---
 title: "Portuguese book translation to English"
 summary: "The client struggled to extract Portuguese text from PDFs while preserving its meaning and structure in JSON format."
-sector: "Publishing"
+sector: "Publishing & Media"
 build: ai
 sources: [docs]
 headline: "Portuguese PDFs to structured JSON with meaning intact"
