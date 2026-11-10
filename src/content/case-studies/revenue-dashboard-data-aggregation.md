@@ -1,6 +1,6 @@
 ---
 title: "Revenue Dashboard — Data Aggregation"
-summary: "The revenue, impression, clicks and CTA data from various Sell Side Platforms and corresponding validation."
+summary: "Revenue, impression and click data from many sell-side platforms never matched the client’s own records, and the discrepancies were affecting billing."
 sector: "Ad tech"
 build: analytics
 sources: [ads]
@@ -27,7 +27,7 @@ tools:
 
 The revenue, impression, clicks and CTA data from various Sell Side Platforms and corresponding validation data from the client database were in different platforms and there was no single way of collecting data in a single platform and comparing them. This resulted in various issues like discrepancy in data and revenue discrepancy which affected billing.
 
-Challenges
+## Challenges
 
 - Data was in different formats across each of the platforms with some platforms using different terminology
 - Data was available at different times of the day

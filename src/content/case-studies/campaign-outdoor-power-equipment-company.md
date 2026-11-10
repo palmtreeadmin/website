@@ -1,6 +1,6 @@
 ---
 title: "Campaign — Outdoor Power Equipment Company"
-summary: "The goal of our leading outdoor power equipment client’s campaign was to highlight."
+summary: "An outdoor power equipment brand needed to bring people to its Test Drive Experience events at more than 200 retail locations across the country."
 sector: "Outdoor equipment"
 build: campaigns
 sources: [location]

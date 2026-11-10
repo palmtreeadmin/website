@@ -1,6 +1,6 @@
 ---
 title: "Manufacturing Unit Consolidated Dashboard"
-summary: "Large manufacturing company in midwest US and with several brand outlets acquired."
+summary: "A US Midwest manufacturer that had grown through acquisitions had no single view of expenditure and revenue forecasts across its brands."
 sector: "Manufacturing"
 build: analytics
 sources: [crm]

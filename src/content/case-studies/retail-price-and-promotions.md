@@ -1,6 +1,6 @@
 ---
 title: "Retail — Price & Promotions"
-summary: "All promotions are targeted towards customers but does the promotion."
+summary: "A retailer’s promotions mostly reached shoppers who had already decided to buy. It needed prices and promotions that would actually change buying behaviour."
 sector: "Retail"
 build: analytics
 sources: [pos]

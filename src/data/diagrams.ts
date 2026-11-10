@@ -1,6 +1,6 @@
 import type { ImageMetadata } from 'astro';
 import dataPlatform from '../assets/case-studies/diagrams/data-platform.png';
-import brandRetail from '../assets/case-studies/diagrams/brand-retail-data-pipline.png';
+// import brandRetail from '../assets/case-studies/diagrams/brand-retail-data-pipline.png';
 import marketing from '../assets/case-studies/diagrams/marketing.png';
 import cohorts from '../assets/case-studies/diagrams/data-pipeline.png';
 import datagen from '../assets/case-studies/diagrams/datagen.png';
@@ -13,10 +13,12 @@ export const DIAGRAMS: Record<string, Diagram> = {
     src: dataPlatform,
     alt: 'Architecture on two Amazon EKS clusters. A ReactJS UI drives an Apache Kafka runner backed by MySQL. The runner talks to Zookeeper and KSQL with a schema registry, and Kafka Connect moves data between Kafka and sources and sinks: Elasticsearch, Cloud Storage and Amazon S3.',
   },
-  'brand-retail-data-pipeline': {
-    src: brandRetail,
-    alt: 'Log files land in Cloud Storage, with a backup copy, then pass through Cloud Dataflow transformations, which add device details from a Kubernetes Engine service, into a BigQuery data warehouse. Cloud Composer orchestrates the ETL.',
-  },
+  // Hidden: this diagram shows Google Cloud, but the case study describes AWS,
+  // EMR Spark, Snowflake and Airflow. Restore once the right diagram is confirmed.
+  // 'brand-retail-data-pipeline': {
+  //   src: brandRetail,
+  //   alt: 'Log files land in Cloud Storage, with a backup copy, then pass through Cloud Dataflow transformations, which add device details from a Kubernetes Engine service, into a BigQuery data warehouse. Cloud Composer orchestrates the ETL.',
+  // },
   'marketing-insights-platform': {
     src: marketing,
     alt: 'Google datasets (DoubleClick, Analytics, AdWords) and other datasets (BlueKai, Silverpop, Mixpanel, point of sale) flow into Cloud Storage and BigQuery on Google Cloud, are wrangled in Cloud Dataprep by analysts and data scientists, and land as results in Cloud Storage and BigQuery. Cloud Machine Learning and Tableau visualisations serve data scientists, business analysts and executives.',

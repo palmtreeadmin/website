@@ -1,6 +1,6 @@
 ---
 title: "Deal Dashboard — Data Aggregation"
-summary: "The private marketplace deal data from various Sell Side Platforms and corresponding validation data."
+summary: "Private-marketplace deal data from several sell-side platforms couldn’t be checked against the client’s records or tied to goals in Salesforce, so deals couldn’t be paced or tracked."
 sector: "Ad tech"
 build: analytics
 sources: [ads, crm]
