@@ -25,6 +25,15 @@
   --t-body: 1.0625rem;
   --t-small: 0.875rem;
   --t-micro: 0.75rem;
+  /* Secondary steps: UI controls and links, page-specific display sizes. */
+  --t-ui: 0.9375rem;
+  --t-button: 1rem;
+  --t-reading: 1.125rem;
+  --t-wordmark: 1.5rem;
+  --t-prose-h: 1.5rem;
+  --t-group: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --t-case-title: clamp(2.25rem, 1rem + 2.6vw, 3.5rem);
+  --t-hero: clamp(2.5rem, 1.4rem + 3.2vw, 4rem);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -72,7 +81,7 @@ h1, h2, h3 { font-weight: 600; text-wrap: balance; }
 h1 { font-size: var(--t-display); line-height: 1.02; letter-spacing: -0.035em; }
 h2 { font-size: var(--t-h2); line-height: 1.08; letter-spacing: -0.028em; }
 h3 { font-size: var(--t-h3); line-height: 1.25; letter-spacing: -0.012em; }
-p { text-wrap: pretty; }
+p, li, dd, figcaption { text-wrap: pretty; }
 
 .label-sm { font-size: var(--t-small); color: var(--ink-3); font-weight: 500; }
 .mono { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0; font-variant-numeric: tabular-nums; }

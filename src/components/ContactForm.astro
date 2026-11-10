@@ -86,7 +86,7 @@ import Arrow from './Arrow.astro';
 <style>
   .contact-form { display: grid; gap: 1.5rem; }
   .field { display: grid; gap: 0.5rem; }
-  label { font-weight: 600; font-size: 0.9375rem; }
+  label { font-weight: 600; font-size: var(--t-ui); }
   .opt { font-weight: 400; color: var(--ink-3); margin-left: 0.25rem; }
   input, textarea {
     font: 400 1rem/1.5 var(--sans); color: var(--ink);
@@ -103,7 +103,7 @@ import Arrow from './Arrow.astro';
   .err { font-size: var(--t-small); color: var(--error); font-weight: 500; }
   .trap { position: absolute; left: -10000px; width: 1px; height: 1px; opacity: 0; }
   .actions { display: grid; gap: 1rem; justify-items: start; }
-  .status { font-size: 0.9375rem; min-height: 1.5em; }
+  .status { font-size: var(--t-ui); min-height: 1.5em; }
   .status[data-state='ok'] { color: var(--palm-deep); font-weight: 600; }
   .status[data-state='error'] { color: var(--error); }
   .status :global(a) { color: inherit; font-weight: 600; }

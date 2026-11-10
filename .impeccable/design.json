@@ -1,48 +1,281 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-08T00:00:00Z",
+  "generatedAt": "2026-11-10T00:00:00Z",
   "title": "Design System: Palmtree Infotech",
   "extensions": {
     "colorMeta": {
-      "palm": { "role": "primary", "displayName": "Palm Green", "canonical": "#0b6e4f", "tonalRamp": ["#032a1d", "#07563d", "#0b6e4f", "#2f8a6b", "#5fa98e", "#97c8b4", "#c6e0d4", "#e3eee8"] },
-      "palm-deep": { "role": "primary", "displayName": "Deep Palm", "canonical": "#07563d", "tonalRamp": ["#021a12", "#043322", "#07563d", "#1f6d53", "#4d8c75", "#86b3a1", "#bdd6cb", "#e6f0eb"] },
-      "palm-wash": { "role": "primary", "displayName": "Palm Wash", "canonical": "#e3eee8", "tonalRamp": ["#2a3a32", "#4b5f55", "#73897e", "#9fb3a8", "#c3d4cb", "#d6e5dd", "#e3eee8", "#f2f7f4"] },
-      "paper": { "role": "neutral", "displayName": "Sheet Paper", "canonical": "#fafaf8", "tonalRamp": ["#262624", "#4a4a46", "#76766f", "#a3a39b", "#c9c9c1", "#e4e4de", "#f1f1ec", "#fafaf8"] },
-      "paper-2": { "role": "neutral", "displayName": "Shaded Paper", "canonical": "#f1f1ec", "tonalRamp": ["#24241f", "#46463f", "#717168", "#9e9e94", "#c5c5bb", "#dfdfd7", "#f1f1ec", "#f9f9f6"] },
-      "field-white": { "role": "neutral", "displayName": "Field White", "canonical": "#ffffff", "tonalRamp": ["#262626", "#4a4a4a", "#777777", "#a3a3a3", "#c9c9c9", "#e4e4e4", "#f5f5f5", "#ffffff"] },
-      "ink": { "role": "neutral", "displayName": "Press Ink", "canonical": "#111111", "tonalRamp": ["#111111", "#2b2b29", "#4d4d47", "#6b6b64", "#8e8e86", "#b5b5ad", "#d9d9d2", "#f1f1ec"] },
-      "ink-2": { "role": "neutral", "displayName": "Graphite", "canonical": "#4d4d47", "tonalRamp": ["#1a1a18", "#33332f", "#4d4d47", "#6b6b64", "#8e8e86", "#b5b5ad", "#d9d9d2", "#f1f1ec"] },
-      "ink-3": { "role": "neutral", "displayName": "Pencil", "canonical": "#6b6b64", "tonalRamp": ["#1a1a18", "#33332f", "#4d4d47", "#6b6b64", "#8e8e86", "#b5b5ad", "#d9d9d2", "#f1f1ec"] },
-      "rule": { "role": "neutral", "displayName": "Hairline", "canonical": "#d9d9d2", "tonalRamp": ["#2b2b28", "#4d4d47", "#6b6b64", "#8e8e86", "#aeaea5", "#c2c2ba", "#d9d9d2", "#f1f1ec"] },
-      "edge": { "role": "neutral", "displayName": "Edge Grey", "canonical": "#c2c2ba", "tonalRamp": ["#2b2b28", "#4d4d47", "#6b6b64", "#8e8e86", "#aeaea5", "#c2c2ba", "#d9d9d2", "#f1f1ec"] },
-      "error": { "role": "tertiary", "displayName": "Signal Red", "canonical": "#b42318", "tonalRamp": ["#3d0b07", "#6e150e", "#b42318", "#d04a3f", "#e27b72", "#efaaa4", "#f7d3d0", "#fdeeed"] }
+      "palm": {
+        "role": "primary",
+        "displayName": "Palm Green",
+        "canonical": "#0b6e4f",
+        "tonalRamp": [
+          "#032a1d",
+          "#07563d",
+          "#0b6e4f",
+          "#2f8a6b",
+          "#5fa98e",
+          "#97c8b4",
+          "#c6e0d4",
+          "#e3eee8"
+        ]
+      },
+      "palm-deep": {
+        "role": "primary",
+        "displayName": "Deep Palm",
+        "canonical": "#07563d",
+        "tonalRamp": [
+          "#021a12",
+          "#043322",
+          "#07563d",
+          "#1f6d53",
+          "#4d8c75",
+          "#86b3a1",
+          "#bdd6cb",
+          "#e6f0eb"
+        ]
+      },
+      "palm-wash": {
+        "role": "primary",
+        "displayName": "Palm Wash",
+        "canonical": "#e3eee8",
+        "tonalRamp": [
+          "#2a3a32",
+          "#4b5f55",
+          "#73897e",
+          "#9fb3a8",
+          "#c3d4cb",
+          "#d6e5dd",
+          "#e3eee8",
+          "#f2f7f4"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Sheet Paper",
+        "canonical": "#fafaf8",
+        "tonalRamp": [
+          "#262624",
+          "#4a4a46",
+          "#76766f",
+          "#a3a39b",
+          "#c9c9c1",
+          "#e4e4de",
+          "#f1f1ec",
+          "#fafaf8"
+        ]
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "Shaded Paper",
+        "canonical": "#f1f1ec",
+        "tonalRamp": [
+          "#24241f",
+          "#46463f",
+          "#717168",
+          "#9e9e94",
+          "#c5c5bb",
+          "#dfdfd7",
+          "#f1f1ec",
+          "#f9f9f6"
+        ]
+      },
+      "field-white": {
+        "role": "neutral",
+        "displayName": "Field White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#4a4a4a",
+          "#777777",
+          "#a3a3a3",
+          "#c9c9c9",
+          "#e4e4e4",
+          "#f5f5f5",
+          "#ffffff"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Press Ink",
+        "canonical": "#111111",
+        "tonalRamp": [
+          "#111111",
+          "#2b2b29",
+          "#4d4d47",
+          "#6b6b64",
+          "#8e8e86",
+          "#b5b5ad",
+          "#d9d9d2",
+          "#f1f1ec"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#4d4d47",
+        "tonalRamp": [
+          "#1a1a18",
+          "#33332f",
+          "#4d4d47",
+          "#6b6b64",
+          "#8e8e86",
+          "#b5b5ad",
+          "#d9d9d2",
+          "#f1f1ec"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Pencil",
+        "canonical": "#6b6b64",
+        "tonalRamp": [
+          "#1a1a18",
+          "#33332f",
+          "#4d4d47",
+          "#6b6b64",
+          "#8e8e86",
+          "#b5b5ad",
+          "#d9d9d2",
+          "#f1f1ec"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#d9d9d2",
+        "tonalRamp": [
+          "#2b2b28",
+          "#4d4d47",
+          "#6b6b64",
+          "#8e8e86",
+          "#aeaea5",
+          "#c2c2ba",
+          "#d9d9d2",
+          "#f1f1ec"
+        ]
+      },
+      "edge": {
+        "role": "neutral",
+        "displayName": "Edge Grey",
+        "canonical": "#c2c2ba",
+        "tonalRamp": [
+          "#2b2b28",
+          "#4d4d47",
+          "#6b6b64",
+          "#8e8e86",
+          "#aeaea5",
+          "#c2c2ba",
+          "#d9d9d2",
+          "#f1f1ec"
+        ]
+      },
+      "error": {
+        "role": "tertiary",
+        "displayName": "Signal Red",
+        "canonical": "#b42318",
+        "tonalRamp": [
+          "#3d0b07",
+          "#6e150e",
+          "#b42318",
+          "#d04a3f",
+          "#e27b72",
+          "#efaaa4",
+          "#f7d3d0",
+          "#fdeeed"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Page h1. Homepage hero caps at 4rem and 22ch." },
-      "headline": { "displayName": "Headline", "purpose": "Section h2." },
-      "title": { "displayName": "Title", "purpose": "Row titles, stack group names, trace result, platform statements." },
-      "lead": { "displayName": "Lead", "purpose": "One supporting paragraph under a heading, graphite, max 44rem." },
-      "body": { "displayName": "Body", "purpose": "Running text; case-study prose at 1.125rem/1.65 within 68ch." },
-      "label": { "displayName": "Label", "purpose": "Axis titles, field keys, sector tags. Sentence case, pencil grey." },
-      "mono": { "displayName": "Mono", "purpose": "Tool and stack names and numeric counts only." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page h1. Homepage hero caps at 4rem and 22ch."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section h2."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Row titles, stack group names, trace result, platform statements."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "One supporting paragraph under a heading, graphite, max 44rem."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text; case-study prose at 1.125rem/1.65 within 68ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Axis titles, field keys, sector tags. Sentence case, pencil grey."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Tool and stack names and numeric counts only."
+      }
     },
     "shadows": [
-      { "name": "focus-halo", "value": "0 0 0 3px #e3eee8", "purpose": "Input focus halo with a palm stroke." },
-      { "name": "current-underline", "value": "inset 0 -2px 0 #111111", "purpose": "Current page marker in the nav." },
-      { "name": "pin-ring", "value": "0 0 0 2px #fafaf8", "purpose": "Separates an active build-node pin from its palm fill." }
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 3px #e3eee8",
+        "purpose": "Input focus halo with a palm stroke."
+      },
+      {
+        "name": "current-underline",
+        "value": "inset 0 -2px 0 #111111",
+        "purpose": "Current page marker in the nav."
+      },
+      {
+        "name": "pin-ring",
+        "value": "0 0 0 2px #fafaf8",
+        "purpose": "Separates an active build-node pin from its palm fill."
+      }
     ],
     "motion": [
-      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The only easing; all state transitions and the path draw." },
-      { "name": "state", "value": "160-200ms", "purpose": "Colour, stroke and opacity changes on hover and trace." },
-      { "name": "button", "value": "180ms", "purpose": "Button fill and stroke change." },
-      { "name": "nudge", "value": "240ms translateX(3px)", "purpose": "Trailing arrow on hover of buttons, arrow links and rows." },
-      { "name": "path-draw", "value": "900ms stroke-dashoffset", "purpose": "The single authored moment: the default lineage path draws on load. None under reduced motion." }
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The only easing; all state transitions and the path draw."
+      },
+      {
+        "name": "state",
+        "value": "160-200ms",
+        "purpose": "Colour, stroke and opacity changes on hover and trace."
+      },
+      {
+        "name": "button",
+        "value": "180ms",
+        "purpose": "Button fill and stroke change."
+      },
+      {
+        "name": "nudge",
+        "value": "240ms translateX(3px)",
+        "purpose": "Trailing arrow on hover of buttons, arrow links and rows."
+      },
+      {
+        "name": "path-draw",
+        "value": "900ms stroke-dashoffset",
+        "purpose": "The single authored moment: the default lineage path draws on load. None under reduced motion."
+      }
     ],
     "breakpoints": [
-      { "name": "narrow", "value": "30rem" },
-      { "name": "collapse", "value": "56rem" },
-      { "name": "hero", "value": "64rem" },
-      { "name": "rows", "value": "72rem" }
+      {
+        "name": "narrow",
+        "value": "30rem"
+      },
+      {
+        "name": "collapse",
+        "value": "56rem"
+      },
+      {
+        "name": "hero",
+        "value": "64rem"
+      },
+      {
+        "name": "rows",
+        "value": "72rem"
+      }
     ]
   },
   "components": [
@@ -117,6 +350,22 @@
       "description": "Square ink-stroked build box with edge pins; fills palm when on the traced path.",
       "html": "<div class=\"ds-lin\"><a class=\"ds-node on\" href=\"#\"><i></i><span>AI, LLMs and agents</span><i></i></a><a class=\"ds-node\" href=\"#\"><i></i><span>Analytics and dashboards</span><i></i></a></div>",
       "css": ".ds-lin { display: grid; gap: 1rem; max-width: 16rem; padding: 0.5rem; font-family: var(--sans, 'Schibsted Grotesk Variable', Arial, sans-serif); } .ds-node { display: flex; align-items: center; justify-content: space-between; min-height: 2.75rem; border: 1px solid var(--ink, #111); background: var(--paper, #fafaf8); color: var(--ink, #111); text-decoration: none; transition: background-color 200ms cubic-bezier(0.16,1,0.3,1), color 200ms cubic-bezier(0.16,1,0.3,1); } .ds-node span { flex: 1; padding: 0.55rem 0.75rem; font: 600 0.9688rem/1.3 inherit; } .ds-node i { width: 0.5625rem; height: 0.5625rem; border-radius: 50%; background: var(--ink, #111); margin-inline: -0.29rem; flex: none; } .ds-node.on, .ds-node:hover { border-color: var(--palm, #0b6e4f); background: var(--palm, #0b6e4f); color: #fff; } .ds-node.on i, .ds-node:hover i { background: var(--palm-deep, #07563d); box-shadow: 0 0 0 2px var(--paper, #fafaf8); transform: scale(1.25); } .ds-node:focus-visible { outline: 2px solid var(--palm, #0b6e4f); outline-offset: 4px; }"
+    },
+    {
+      "name": "Tool List",
+      "kind": "list",
+      "refersTo": "tool-list",
+      "description": "Case-study aside: original logo in a white hairline tile, tool name in mono.",
+      "html": "<ul class=\"ds-tools\"><li><span class=\"ds-tile\"><span class=\"ds-logo\">Snowflake</span></span><span class=\"ds-name\">Snowflake</span></li><li><span class=\"ds-tile\"><span class=\"ds-pin\"></span></span><span class=\"ds-name\">Venture</span></li></ul>",
+      "css": ".ds-tools { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; } .ds-tools li { display: grid; grid-template-columns: 5.5rem minmax(0,1fr); align-items: center; gap: 0.875rem; } .ds-tile { width: 5.5rem; height: 2.75rem; display: grid; place-items: center; background: #fff; border: 1px solid var(--rule, #d9d9d2); padding: 0.375rem; box-sizing: border-box; } .ds-logo { font: 700 0.75rem var(--sans, 'Schibsted Grotesk Variable', Arial, sans-serif); color: #29b5e8; } .ds-pin { width: 0.4375rem; height: 0.4375rem; border-radius: 50%; border: 1.5px solid var(--ink-3, #6b6b64); } .ds-name { font-family: var(--mono, 'JetBrains Mono Variable', ui-monospace, monospace); font-size: 0.8125rem; color: var(--ink-2, #4d4d47); }"
+    },
+    {
+      "name": "Solution Diagram",
+      "kind": "figure",
+      "refersTo": "solution-diagram",
+      "description": "Original architecture diagram in a white frame with an ink top rule; scrolls sideways below 56rem.",
+      "html": "<figure class=\"ds-diagram\"><div class=\"ds-frame\"><div class=\"ds-img\">Architecture diagram</div></div><figcaption>Select the diagram to open it full size.</figcaption></figure>",
+      "css": ".ds-diagram { margin: 0; display: grid; gap: 0.75rem; } .ds-frame { background: #fff; border: 1px solid var(--rule, #d9d9d2); border-top-color: var(--ink, #111); padding: 1.5rem; } .ds-img { height: 8rem; display: grid; place-items: center; color: var(--ink-3, #6b6b64); font: 400 0.875rem var(--sans, 'Schibsted Grotesk Variable', Arial, sans-serif); background: var(--paper-2, #f1f1ec); } .ds-diagram figcaption { font: 400 0.875rem var(--sans, 'Schibsted Grotesk Variable', Arial, sans-serif); color: var(--ink-3, #6b6b64); }"
     }
   ],
   "narrative": {
@@ -130,11 +379,31 @@
       "Light scene only."
     ],
     "rules": [
-      { "name": "The Reserved Green Rule", "body": "Palm green does four jobs only: the traced path, the primary action, focus and selection (deep palm carries their hover). Current-nav underlines, bullets and resting nodes are ink. If green appears anywhere else, it is a defect.", "section": "colors" },
-      { "name": "The Ink Above, Hairline Between Rule", "body": "A group of rows opens with a 1px ink rule and separates its rows with 1px hairline (rule) lines. The weight change is the hierarchy.", "section": "colors" },
-      { "name": "The One Family Rule", "body": "Every heading, label, button and paragraph is Schibsted Grotesk. Mono is a data annotation (a tool name or a count), never a label, heading or tag style.", "section": "typography" },
-      { "name": "The Sentence-Case Label Rule", "body": "Labels are Schibsted Grotesk, sentence case, pencil grey, sitting above or beside the thing they name. They are never uppercase, tracked, or placed as a kicker over a heading.", "section": "typography" },
-      { "name": "The Line-Weight Rule", "body": "Never lift something to make it important; give it a heavier line or a better position. The only box-shadows in the build are functional: the 3px palm-wash input focus halo, the 2px inset ink current-nav underline, and a 2px paper ring separating an active build-node pin from its green fill.", "section": "elevation" }
+      {
+        "name": "The Reserved Green Rule",
+        "body": "Palm green does four jobs only: the traced path, the primary action, focus and selection (deep palm carries their hover). Current-nav underlines, bullets and resting nodes are ink. If green appears anywhere else, it is a defect.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Above, Hairline Between Rule",
+        "body": "A group of rows opens with a 1px ink rule and separates its rows with 1px hairline (rule) lines. The weight change is the hierarchy.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Every heading, label, button and paragraph is Schibsted Grotesk. Mono is a data annotation (a tool name or a count), never a label, heading or tag style.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence-Case Label Rule",
+        "body": "Labels are Schibsted Grotesk, sentence case, pencil grey, sitting above or beside the thing they name. They are never uppercase, tracked, or placed as a kicker over a heading.",
+        "section": "typography"
+      },
+      {
+        "name": "The Line-Weight Rule",
+        "body": "Never lift something to make it important; give it a heavier line or a better position. The only box-shadows in the build are functional: the 3px palm-wash input focus halo, the 2px inset ink current-nav underline, and a 2px paper ring separating an active build-node pin from its green fill.",
+        "section": "elevation"
+      }
     ],
     "dos": [
       "Do keep palm green to the traced path, the primary action, focus and selection; use ink for current-nav markers, bullets and resting nodes.",

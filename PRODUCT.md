@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Astro with static output, chosen by the user for the 2027 rebuild (replaces hand-written HTML whose header and footer were injected with jQuery `.load()`). Served at `palmtreeinfotech.com` (repo `CNAME`; GitHub Pages is the assumed host, deploy pipeline not yet confirmed). Case studies become content files rendered through shared layouts.
+Astro with static output, chosen by the user for the 2027 rebuild (replaces hand-written HTML whose header and footer were injected with jQuery `.load()`). Served at `palmtreeinfotech.com` on GitHub Pages, deployed by the `Deploy to GitHub Pages` Actions workflow (`.github/workflows/deploy.yml`) on pushes to the `2027` branch, ahead of merging to `master`. Case studies become content files rendered through shared layouts.
 
 ## Users
 
@@ -31,7 +31,7 @@ In the user's words: **AI consultancy services and product engineering, plus hel
 
 - Visitors usually arrive from referrals, LinkedIn or search, and read case studies to judge relevance before reaching out.
 - Contact paths: the contact form, `info@palmtreeinfotech.com`, phone `044 42779031` (Mon–Fri 9am–6pm IST), office at 6D Narayana St, Ayanavaram, Chennai, Tamil Nadu 600023.
-- The current site loads a Drift chat widget (`drift.js`) and reCAPTCHA. Whether either stays is undecided.
+- The Drift chat widget stays, loaded on the visitor's first interaction. reCAPTCHA is dropped (see the contact form below).
 
 ## Capabilities and Constraints
 
@@ -52,17 +52,22 @@ Constraints and known defects to resolve:
 - `case-studies/manufacturing-unit-consolidated-dashboard.html` and `manufacturing-units-consolidated-dashboard.html` are near-duplicates: merge them and keep a redirect.
 - Existing URLs (`/case-studies/*.html`, `/case-studies`) should keep resolving.
 - The contact form posts to FormSubmit (`https://formsubmit.co/ajax/rajesh@palmtreeinfotech.com`), confirmed by the user. reCAPTCHA is dropped; FormSubmit's `_honey` field handles spam.
-- Analytics: the current tag is retired Universal Analytics (`UA-143783384-1`). **Open decision:** use GA4 (ID needed), something else, or nothing.
+- Analytics: GA4 (`G-JEFN2WDD8X`, set in `src/config.ts`). The page view is queued immediately and the gtag library loads after the page has settled.
+
+## Current State
+
+- The India-team section on the homepage and its nav links are hidden (commented out) while the owner reworks that content. The positioning still includes it.
+- The footer reads "© 2027" by decision for the 2027 launch; update it by hand each year.
 
 ## Brand Commitments
 
-- Name: Palmtree Infotech, shortened to "Palmtree". The logo asset is `img/logo.png`. The current wordmark (a teal "P" + "almtree") is template styling, not a binding identity.
+- Name: Palmtree Infotech, shortened to "Palmtree". The browser tab icon is the original palm-tree favicon. The old wordmark (a teal "P" + "almtree") was template styling and is replaced by the typeset "Palmtree." mark.
 - Social: Twitter `@palmtreelabs`, LinkedIn `in.linkedin.com/company/palmtree-infotech`.
 - No other visual commitments are binding. The BootstrapMade "eBusiness" template look is being replaced.
 
 ## Evidence on Hand
 
-- 23 real case studies in `case-studies/` (24 files including the duplicate), each following Problem → Challenges → Tools → Result. Some include concrete outcomes (e.g. Beacon Supermarket: "42% of shoppers who viewed a targeted message purchased the advertised product"). Thumbnails are in `img/case-studies/`, tool logos in `img/case-studies/tools/`.
+- 23 real case studies in `case-studies/` (24 files including the duplicate), each following Problem → Challenges → Tools → Result. Some include concrete outcomes (e.g. Beacon Supermarket: "42% of shoppers who viewed a targeted message purchased the advertised product"). The original tool logos and five solution diagrams are carried over in `src/assets/case-studies/` and optimised at build time.
 - Client names are anonymised by sector ("Telecom Major", "Fast Food Chain"). Keep them anonymised.
 - Partner platforms worked on: Google Cloud, Microsoft Azure, AWS, Spot.io (logos in `img/partners/`). There's no evidence of formal partner tiers or certifications: do not claim any.
 - Absent, so never fabricate: testimonials, named clients, client logos, team size, headcount, certifications, years-in-business figures beyond "more than a decade", pricing, offshore-team metrics.

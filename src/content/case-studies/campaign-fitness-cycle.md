@@ -1,5 +1,5 @@
 ---
-title: "Campaign — Fitness Cycle"
+title: "Campaign: Fitness Cycle"
 summary: "To set up multi device campaigns targeting fitness enthusiasts and selling them fitness static cycles and also a subscription for the fitness."
 sector: "Fitness"
 build: campaigns

@@ -1,5 +1,5 @@
 ---
-title: "Campaign — Department Store Chain"
+title: "Campaign: Department Store Chain"
 summary: "To create awareness about the Prom Fashion events held at different locations of the departmental store."
 sector: "Retail"
 build: campaigns

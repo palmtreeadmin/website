@@ -1,5 +1,5 @@
 ---
-title: "Retail — Promotion Analytics"
+title: "Retail: Promotion Analytics"
 summary: "Retailers rely heavily on promotions and offers to generate higher returns."
 sector: "Retail"
 build: analytics

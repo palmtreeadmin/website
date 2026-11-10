@@ -1,5 +1,5 @@
 ---
-title: "Beacon — Supermarket"
+title: "Beacon: Supermarket"
 summary: "A supermarket in the city needed to better oversee and impact their customers visits. While 70% of purchasing decisions are made in-store."
 sector: "Retail"
 build: commerce

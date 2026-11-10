@@ -1,5 +1,5 @@
 ---
-title: "Campaign — Outdoor Power Equipment Company"
+title: "Campaign: Outdoor Power Equipment Company"
 summary: "An outdoor power equipment brand needed to bring people to its Test Drive Experience events at more than 200 retail locations across the country."
 sector: "Outdoor equipment"
 build: campaigns

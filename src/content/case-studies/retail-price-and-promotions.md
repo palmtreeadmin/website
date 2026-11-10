@@ -1,5 +1,5 @@
 ---
-title: "Retail — Price & Promotions"
+title: "Retail: Price & Promotions"
 summary: "A retailer’s promotions mostly reached shoppers who had already decided to buy. It needed prices and promotions that would actually change buying behaviour."
 sector: "Retail"
 build: analytics

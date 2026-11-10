@@ -1,5 +1,5 @@
 ---
-title: "Retail — Price & Forecast Optimizer"
+title: "Retail: Price & Forecast Optimizer"
 summary: "Retailers find ways to optimize the price and forecast predictions."
 sector: "Retail"
 build: ai

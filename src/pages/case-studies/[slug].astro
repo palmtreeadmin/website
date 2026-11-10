@@ -63,8 +63,8 @@ const diagram = DIAGRAMS[study.id];
 <style>
   .head { padding-block: clamp(2.5rem, 5vw, 4rem) 2.5rem; display: grid; gap: 1.25rem; }
   /* Case-study titles run long; size them to sit on one line at laptop widths and up. */
-  .head h1 { font-size: clamp(2.25rem, 1rem + 2.6vw, 3.5rem); letter-spacing: -0.03em; }
-  .back { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9375rem; text-decoration: none; color: var(--ink-2); justify-self: start; }
+  .head h1 { font-size: var(--t-case-title); letter-spacing: -0.03em; }
+  .back { display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--t-ui); text-decoration: none; color: var(--ink-2); justify-self: start; }
   .back :global(.back-arrow) { width: 1em; height: 1em; transform: scaleX(-1); }
   .back:hover { color: var(--palm-deep); text-decoration: underline; }
 
@@ -78,9 +78,9 @@ const diagram = DIAGRAMS[study.id];
   .trace .end .v { font-size: var(--t-h3); letter-spacing: -0.012em; }
   .trace a { text-decoration-color: var(--edge); }
 
-  .body { display: grid; grid-template-columns: minmax(0, 68ch) minmax(14rem, 18rem); justify-content: space-between; gap: 4rem; padding-top: 3.5rem; }
-  .prose { font-size: 1.125rem; line-height: 1.65; }
-  .prose :global(h2) { font-size: 1.5rem; letter-spacing: -0.02em; margin: 3rem 0 1rem; }
+  .body { display: grid; grid-template-columns: minmax(0, 62ch) minmax(14rem, 18rem); justify-content: space-between; gap: 4rem; padding-top: 3.5rem; }
+  .prose { font-size: var(--t-reading); line-height: 1.65; }
+  .prose :global(h2) { font-size: var(--t-prose-h); letter-spacing: -0.02em; margin: 3rem 0 1rem; }
   .prose :global(h2:first-child) { margin-top: 0; }
   .prose :global(p) { margin-bottom: 1rem; color: var(--ink); }
   .prose :global(ul) { padding-left: 1.25rem; display: grid; gap: 0.6rem; }
@@ -89,11 +89,11 @@ const diagram = DIAGRAMS[study.id];
   aside { position: sticky; top: 6rem; align-self: start; }
   aside dl { display: grid; gap: 1.5rem; }
   aside dl div { border-top: 1px solid var(--ink); padding-top: 0.875rem; display: grid; gap: 0.5rem; }
-  aside dt { font-weight: 600; font-size: 0.9375rem; }
+  aside dt { font-weight: 600; font-size: var(--t-ui); }
   aside dd { color: var(--ink-2); }
 
   .arch { margin-top: var(--step-section); display: grid; gap: 1.5rem; }
-  .arch h2 { font-size: 1.5rem; letter-spacing: -0.02em; }
+  .arch h2 { font-size: var(--t-prose-h); letter-spacing: -0.02em; }
 
   .after { margin-top: var(--step-section); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; border-top: 1px solid var(--ink); padding-top: 3rem; }
   .cta { display: grid; gap: 1.5rem; justify-items: start; align-content: start; }

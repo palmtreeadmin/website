@@ -1,5 +1,5 @@
 ---
-title: "Shopify — Leather Shoe Store"
+title: "Shopify: Leather Shoe Store"
 summary: "A major South Indian based multi brand leather shoe exporter needed an effective way to process customized leather shoe orders."
 sector: "Footwear"
 build: commerce

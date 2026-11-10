@@ -24,7 +24,7 @@ This exploration helps us prepare for future use cases where data from external 
 ## Challenges
 
 - Dynamic Parameter Handling: Some APIs require query parameters like symbol, country, or year. Testing how MCP could pass and manage these inputs dynamically was a key part of the study.
-- Testing Different Data Domains: We tried very different datasets — stocks, countries, visitor stats — to evaluate the flexibility of MCP across domains.
+- Testing Different Data Domains: We tried very different datasets (stocks, countries, visitor stats) to evaluate the flexibility of MCP across domains.
 - Lightweight UDFs, Powerful Results: We wanted to see how minimal UDF code, wrapped with MCP logic, could yield highly usable outputs with little overhead.
 
 ## Result

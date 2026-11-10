@@ -1,5 +1,5 @@
 ---
-title: "Campaign — Retail Chain"
+title: "Campaign: Retail Chain"
 summary: "A famous retail chain wanted an efficient way to target on-the-go consumers with mobile technology. The main target was to increase the footfalls."
 sector: "Retail"
 build: campaigns

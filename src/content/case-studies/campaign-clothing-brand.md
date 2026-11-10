@@ -1,5 +1,5 @@
 ---
-title: "Campaign — Clothing Brand"
+title: "Campaign: Clothing Brand"
 summary: "A major California based clothing brand needed an effective way of sourcing new clients."
 sector: "Apparel"
 build: campaigns

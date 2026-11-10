@@ -56,6 +56,49 @@ typography:
     fontWeight: 400
     letterSpacing: "0em"
     fontFeature: "'tnum'"
+  hero:
+    fontFamily: "Schibsted Grotesk Variable, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(2.5rem, 1.4rem + 3.2vw, 4rem)"
+    fontWeight: 600
+    lineHeight: 1.02
+    letterSpacing: "-0.035em"
+  case-title:
+    fontFamily: "Schibsted Grotesk Variable, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(2.25rem, 1rem + 2.6vw, 3.5rem)"
+    fontWeight: 600
+    lineHeight: 1.02
+    letterSpacing: "-0.03em"
+  group-heading:
+    fontFamily: "Schibsted Grotesk Variable, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(1.5rem, 1.2rem + 1vw, 2rem)"
+    fontWeight: 600
+    lineHeight: 1.08
+  prose-heading:
+    fontFamily: "Schibsted Grotesk Variable, Helvetica Neue, Arial, sans-serif"
+    fontSize: "1.5rem"
+    fontWeight: 600
+    lineHeight: 1.08
+    letterSpacing: "-0.02em"
+  wordmark:
+    fontFamily: "Schibsted Grotesk Variable, Helvetica Neue, Arial, sans-serif"
+    fontSize: "1.5rem"
+    fontWeight: 700
+    letterSpacing: "-0.035em"
+  reading:
+    fontFamily: "Schibsted Grotesk Variable, Helvetica Neue, Arial, sans-serif"
+    fontSize: "1.125rem"
+    fontWeight: 400
+    lineHeight: 1.65
+  button:
+    fontFamily: "Schibsted Grotesk Variable, Helvetica Neue, Arial, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 600
+    lineHeight: 1
+  ui:
+    fontFamily: "Schibsted Grotesk Variable, Helvetica Neue, Arial, sans-serif"
+    fontSize: "0.9375rem"
+    fontWeight: 500
+    lineHeight: 1.4
 rounded:
   none: "0px"
   focus: "2px"
@@ -164,13 +207,17 @@ An ink-and-paper neutral set with a single palm green that means "this is the pa
 **Character:** One sturdy news-grotesk in tight, semibold headings and plain-spoken body, with stylistic set 01 on throughout; mono appears as a technical annotation, never as decoration.
 
 ### Hierarchy
-- **Display** (600, clamp to 4.25rem, 1.02, -0.035em): page h1. The homepage hero caps it at 4rem and 22ch so the graph fits the first viewport.
-- **Headline** (600, clamp to 2.75rem, 1.08, -0.028em): section h2. Grouped case-study headings step down to clamp(1.5rem, 2rem).
+- **Display** (600, clamp to 4.25rem, 1.02, -0.035em): page h1. Two page-specific variants: **Hero** (`--t-hero`, clamp to 4rem, max 22ch) so the homepage graph fits the first viewport, and **Case title** (`--t-case-title`, 2.25–3.5rem, -0.03em, full sheet width) so long case-study titles hold one line from about 1100px up.
+- **Headline** (600, clamp to 2.75rem, 1.08, -0.028em): section h2. Grouped case-study headings step down to **Group heading** (`--t-group`, 1.5–2rem); headings inside case-study prose and the "How it fits together" heading use **Prose heading** (`--t-prose-h`, 1.5rem, -0.02em).
 - **Title** (600, 1.3125rem, 1.25, -0.012em): row titles, stack group names, the result line in a trace, platform statements.
 - **Lead** (400, clamp to 1.3125rem, 1.5, graphite, max 44rem): the one supporting paragraph under a heading.
-- **Body** (400, 1.0625rem, 1.55): running text. Case-study prose runs at 1.125rem / 1.65 within 68ch.
+- **Body** (400, 1.0625rem, 1.55): running text. Case-study prose and case-study result lines use **Reading** (`--t-reading`, 1.125rem / 1.65); prose sits within 62ch so lines stay under about 80 characters.
 - **Label** (500, 0.875rem, pencil, sentence case): axis titles, field keys ("Started from", "Sector"), sector tags. No uppercase, no letter-spacing.
 - **Mono** (400, 0.8125rem, tabular figures): tool lists joined by " · ", stack chips, filter counts.
+- **UI** (`--t-ui`, 0.9375rem): controls and secondary links: nav links, compact buttons, filter chips, form labels and status, back and arrow links, row counts, footer text, aside keys.
+- **Button** (`--t-button`, 600, 1rem): primary and full-width buttons. **Wordmark** (`--t-wordmark`, 700, 1.5rem): the "Palmtree." mark in header and footer.
+
+Paragraphs, list items, definitions and captions all set `text-wrap: pretty` so a single word is not left alone on a last line.
 
 ### Named Rules
 **The One Family Rule.** Every heading, label, button and paragraph is Schibsted Grotesk. Mono is a data annotation (a tool name or a count), never a label, heading or tag style.
@@ -181,7 +228,7 @@ An ink-and-paper neutral set with a single palm green that means "this is the pa
 
 A single wide sheet: content sits in a 90rem max column with a fluid gutter (1.25rem to 4rem). Sections are separated by a fluid step (5rem to 9rem) and open with a section head (heading plus optional lead, max 52rem, 1rem gap) followed by 2.5–4rem of air.
 
-Within sections, content is laid out as asymmetric multi-column rows on CSS grid with baseline alignment: a name column, a description column, a de-emphasised tools column and a trailing count or arrow. Typical row padding is 1.25–1.75rem block; column gaps are 2rem. Case studies use a 68ch prose column with an 14–18rem sticky aside of ink-ruled key/value pairs.
+Within sections, content is laid out as asymmetric multi-column rows on CSS grid with baseline alignment: a name column, a description column, a de-emphasised tools column and a trailing count or arrow. Typical row padding is 1.25–1.75rem block; column gaps are 2rem. Case studies use a 62ch prose column with an 14–18rem sticky aside of ink-ruled key/value pairs.
 
 Responsive behaviour collapses at 56rem: rows become single columns, side-by-side traces turn vertical (the connecting line runs down the left), the lineage graph shows only its result column as a hairline list, and the nav becomes a Contact button plus a Menu toggle that drops a full-width ruled list. Secondary breakpoints at 72rem and 64rem rebalance the build rows and hero copy. Interactive targets hold a 2.75rem minimum height.
 
@@ -223,6 +270,15 @@ Wordmark left ("Palmtree" in 700 at 1.5rem, -0.035em, with a palm full stop; thi
 
 ### Lineage Graph (signature)
 Three columns (sources 0.85fr, builds 0.85fr, results 2fr) under pencil axis labels on a hairline. Sources are right-aligned text ending in a pin; builds are square ink-stroked boxes with pins on both edges; results are text rows with a sector tag. SVG curves join the pins. On hover or focus, a node's paths turn palm (2.25px), its pins scale 1.25 and turn palm, a build box fills palm, the result label gains a 2px palm underline, and unrelated nodes dim to pencil with edge-grey pins. The default path draws itself on load over 900ms (expo-out); no motion under reduced-motion. Below 56rem only the result list remains, each row showing its "source → build" trail in micro pencil type.
+
+### Tool List
+The case-study aside lists each tool as a 5.5rem × 2.75rem field-white tile with a 1px hairline stroke, holding the tool's original logo (carried over from the old site, contained, never cropped), followed by the tool name in mono, graphite. Tools without a logo show a small pencil-ringed node in the tile. Logos are decorative (empty alt); the name is the content.
+
+### Solution Diagram
+Case studies with an architecture diagram end with a "How it fits together" section: the original diagram PNG in a field-white frame (hairline stroke, ink top rule), linking to the full-size image. Below 56rem the frame holds a 45rem width and scrolls sideways inside a focusable region, and the caption says so. Each diagram carries a full text description as alt text. Diagrams are listed in `src/data/diagrams.ts`; the retail pipeline diagram is withheld because it contradicts its case study.
+
+### Share Image
+`public/og.png` (1200 × 630) is the link preview for every page: wordmark, the hero headline at display weight, a small lineage motif with one palm-traced path, and a mono footer line over an ink rule.
 
 ### Trace
 A straight horizontal sequence of palm nodes joined by a 2px palm line, each step a label over a value; the last step carries the result at title size. Used for the case-study header (started from, built, result) and the India-team path. Turns vertical below 56rem.

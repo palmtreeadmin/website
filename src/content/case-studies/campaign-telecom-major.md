@@ -1,5 +1,5 @@
 ---
-title: "Campaign — Telecom Major"
+title: "Campaign: Telecom Major"
 summary: "A major US based telecom brand needed an effective way of sourcing new clients mainly from users groups."
 sector: "Telecom"
 build: campaigns

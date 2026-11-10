@@ -1,5 +1,5 @@
 ---
-title: "Revenue Dashboard — Data Aggregation"
+title: "Revenue Dashboard: Data Aggregation"
 summary: "Revenue, impression and click data from many sell-side platforms never matched the client’s own records, and the discrepancies were affecting billing."
 sector: "Ad tech"
 build: analytics

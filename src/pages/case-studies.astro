@@ -72,7 +72,7 @@ const byBuild = BUILDS.map((b) => ({ ...b, items: studies.filter((s) => s.data.b
   .page-head { padding-block: clamp(3rem, 6vw, 5rem) 2.5rem; display: grid; gap: 1.25rem; }
   .filter { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-bottom: 1rem; position: sticky; top: 4.5rem; z-index: 5; background: var(--paper); padding-top: 1rem; border-bottom: 1px solid var(--rule); }
   .filter button {
-    font: 500 0.9375rem var(--sans); color: var(--ink); background: none; cursor: pointer;
+    font: 500 var(--t-ui) var(--sans); color: var(--ink); background: none; cursor: pointer;
     border: 1px solid var(--edge); min-height: 2.75rem; padding: 0 1rem; display: inline-flex; align-items: center; gap: 0.5rem;
     transition: border-color 160ms var(--ease-out), background-color 160ms var(--ease-out), color 160ms var(--ease-out);
   }
@@ -82,7 +82,7 @@ const byBuild = BUILDS.map((b) => ({ ...b, items: studies.filter((s) => s.data.b
 
   .group { padding-top: clamp(3rem, 6vw, 4.5rem); }
   .group-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 2rem; align-items: baseline; margin-bottom: 1.5rem; }
-  .group-head h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); display: flex; align-items: center; gap: 0.75rem; }
+  .group-head h2 { font-size: var(--t-group); display: flex; align-items: center; gap: 0.75rem; }
   .group-head p { color: var(--ink-2); max-width: 52ch; }
 
   .study {
@@ -91,8 +91,8 @@ const byBuild = BUILDS.map((b) => ({ ...b, items: studies.filter((s) => s.data.b
   }
   .from { color: var(--ink-3); font-size: var(--t-small); }
   .result { display: grid; gap: 0.25rem; }
-  .result strong { font-weight: 600; font-size: 1.125rem; line-height: 1.35; }
-  .title { color: var(--ink-2); font-size: 0.9375rem; }
+  .result strong { font-weight: 600; font-size: var(--t-reading); line-height: 1.35; }
+  .title { color: var(--ink-2); font-size: var(--t-ui); }
   .tools { color: var(--ink-3); }
   .go { width: 1.1rem; height: 1.1rem; color: var(--ink-3); transition: transform 240ms var(--ease-out), color 200ms var(--ease-out); }
   .study:hover strong { color: var(--palm-deep); }

@@ -116,7 +116,7 @@ const steps = [
 <style>
   .hero { padding-top: clamp(2.25rem, 4vw, 3.25rem); display: grid; gap: clamp(2.25rem, 3.5vw, 3rem); }
   .hero-copy { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1.25rem clamp(2rem, 5vw, 5rem); align-items: end; }
-  .hero h1 { font-size: clamp(2.5rem, 1.4rem + 3.2vw, 4rem); max-width: 22ch; }
+  .hero h1 { font-size: var(--t-hero); max-width: 22ch; }
   .hero .lead { font-size: 1.0625rem; }
   @media (max-width: 64rem) { .hero-copy { grid-template-columns: 1fr; } .hero .lead { font-size: var(--t-lead); } }
 
@@ -128,7 +128,7 @@ const steps = [
   .build-row h3 { display: flex; align-items: center; gap: 0.75rem; }
   .build-row p { color: var(--ink-2); max-width: 46ch; }
   .build-row .tools { color: var(--ink-3); }
-  .build-row .count { justify-self: end; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9375rem; white-space: nowrap; }
+  .build-row .count { justify-self: end; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: var(--t-ui); white-space: nowrap; }
   .build-row .count :global(svg) { width: 0.95em; height: 0.95em; transition: transform 240ms var(--ease-out); }
   .build-row:hover h3 { color: var(--palm-deep); }
   .build-row:hover .node-dot { background: var(--palm); }
